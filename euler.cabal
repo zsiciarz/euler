@@ -1,0 +1,60 @@
+name:           euler
+version:        0.1
+cabal-version:  >= 1.2
+build-type:     Simple
+
+executable euler
+  hs-source-dirs:  src
+  main-is:         Main.hs
+  build-depends:   
+                   primes,
+                   split,
+                   haskell2010,
+                   bytestring
+  ghc-options:     -Wall -O2 -fno-warn-type-defaults
+  other-modules:   
+                   Problem16,
+                   Problem33,
+                   Problem41,
+                   Problem1,
+                   Problem2,
+                   Problem3,
+                   Problem4,
+                   Problem5,
+                   Problem6,
+                   Problem7,
+                   Problem8,
+                   Problem9,
+                   Problem10,
+                   Problem11,
+                   Problem12,
+                   Problem13,
+                   Problem14,
+                   Problem15,
+                   Problem17,
+                   Problem19,
+                   Problem20,
+                   Problem22,
+                   Problem25,
+                   Problem27,
+                   Problem28,
+                   Problem29,
+                   Problem30,
+                   Problem34,
+                   Problem35,
+                   Problem36,
+                   Problem39,
+                   Problem40,
+                   Problem42,
+                   Problem45,
+                   Problem48,
+                   Problem49,
+                   Problem52,
+                   Problem56,
+                   Problem62,
+                   Problem97,
+                   Problem124,
+                   Problem187,
+                   Problem303,
+                   Problem92
+
