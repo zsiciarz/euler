@@ -1,3 +1,4 @@
+-- works, brute force
 
 module Problem92 where
 

@@ -1,14 +1,13 @@
+-- works, brute force
 
 module Problem97 where
 
-nmp :: Integer
-nmp = 28433 * 2^7830457 + 1
-
-lastElems :: String -> Int -> String
-lastElems s n = reverse $ lastElems' s n
-    where lastElems' _ 0 = []
-          lastElems' s' n' = (last s') : lastElems' (init s') (n'-1)
+lastDigits :: Integer -> Int -> Integer
+lastDigits x n = lastDigits' x n 0 where
+    lastDigits' _ 0 _ = 0
+    lastDigits' x' n' p = (m * 10^p) + (lastDigits' d (n'-1) (p+1)) where
+            (d, m) = x' `quotRem` 10
 
 solution :: IO ()
 solution = do
-    print $ lastElems (show nmp) 10
+    print $ lastDigits (28433 * 2^7830457 + 1) 10
