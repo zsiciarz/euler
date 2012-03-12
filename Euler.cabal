@@ -10,8 +10,8 @@ executable euler
                    primes,
                    split,
                    bytestring,
-                   haskell2010,
-                   directory
+                   directory,
+                   base
   ghc-options:     -Wall -O2 -fno-warn-type-defaults
   other-modules:
                    Problem16,
@@ -62,5 +62,6 @@ executable euler
                    Problem71,
                    Problem72,
                    Problem73,
-                   Problem76
+                   Problem76,
+                   Problem38
 
