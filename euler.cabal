@@ -6,13 +6,13 @@ build-type:     Simple
 executable euler
   hs-source-dirs:  src
   main-is:         Main.hs
-  build-depends:   
+  build-depends:
                    primes,
                    split,
-                   haskell2010,
-                   bytestring
+                   bytestring,
+                   haskell2010
   ghc-options:     -Wall -O2 -fno-warn-type-defaults
-  other-modules:   
+  other-modules:
                    Problem16,
                    Problem33,
                    Problem41,
@@ -56,5 +56,10 @@ executable euler
                    Problem124,
                    Problem187,
                    Problem303,
-                   Problem92
+                   Problem92,
+                   Problem63,
+                   Problem71,
+                   Problem72,
+                   Problem73,
+                   Problem76
 
