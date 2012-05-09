@@ -11,7 +11,8 @@ executable euler
                    split,
                    bytestring,
                    directory,
-                   base
+                   base,
+                   array
   ghc-options:     -Wall -O2 -fno-warn-type-defaults
   other-modules:
                    Problem16,
@@ -67,5 +68,6 @@ executable euler
                    Problem53,
                    Problem55,
                    Problem23,
-                   Problem112
+                   Problem112,
+                   Problem31
 
