@@ -12,7 +12,8 @@ executable euler
                    bytestring,
                    directory,
                    base,
-                   array
+                   array,
+                   containers
   ghc-options:     -Wall -O2 -fno-warn-type-defaults
   other-modules:
                    Problem16,
@@ -73,5 +74,6 @@ executable euler
                    Problem204,
                    Problem43,
                    Problem99,
-                   Problem47
+                   Problem47,
+                   Problem87
 
