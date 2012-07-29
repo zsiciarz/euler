@@ -2,8 +2,7 @@
 
 module Problem53 where
 
-factorials :: [Integer]
-factorials = scanl (*) 1 [1..100]
+import Common (factorials)
 
 combinations :: Int -> Int -> Integer
 combinations n r = factorials !! n `div` (factorials !! r * factorials !! (n-r))

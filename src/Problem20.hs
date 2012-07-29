@@ -3,8 +3,7 @@ module Problem20 where
 
 import Data.Char
 
-factorial :: Integer -> Integer
-factorial n = product [1..n]
+import Common (factorial)
 
 solution :: IO ()
 solution = do
