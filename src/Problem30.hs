@@ -1,8 +1,7 @@
 
 module Problem30 where
 
-digits :: Int -> [Int]
-digits x = [ read [c]::Int | c <- show x ]
+import Common (digits)
 
 sumPowers :: Int -> Int -> Int
 sumPowers pow = sum . map (^pow) . digits
