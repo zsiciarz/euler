@@ -2,9 +2,7 @@
 
 module Problem55 where
 
-digits :: Int -> [Int]
-digits 0 = []
-digits x = (x `mod` 10) : digits (x `div` 10)
+import Common (digits)
 
 undigits :: [Int] -> Int
 undigits revdigs = sum $ zipWith (\a b -> a * 10^b) revdigs [0,1..]
