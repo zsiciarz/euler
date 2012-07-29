@@ -1,6 +1,9 @@
--- todo
+-- works, runs in 22 seconds
 
 module Problem23 where
+
+limit :: Int
+limit = 28123
 
 divisors :: Int -> [Int]
 divisors x = divisors' 2 [1] x
@@ -15,14 +18,12 @@ isAbundant :: Int -> Bool
 isAbundant x = x < sum (divisors x)
 
 abundants :: [Int]
-abundants = filter isAbundant [1..]
+abundants = filter isAbundant [1..limit]
 
-sumsOfNotAbundants :: [Int]
-sumsOfNotAbundants = [x + y | x <- [1..28123]
-                         , y <- [1..(28123-x)]
-                         , (not $ isAbundant x) || (not $ isAbundant y)
-                         ]
+isSum :: Int -> Bool
+isSum x = any isAbundant $ rests x where
+          rests n = map (n-) $ takeWhile (<= n `div` 2) abundants
 
 solution :: IO ()
 solution = do
-    print $ take 100 $ sumsOfNotAbundants
+    print $ sum $ filter (not . isSum) [1..limit]
