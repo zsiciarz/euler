@@ -76,5 +76,6 @@ executable euler
                    Problem99,
                    Problem47,
                    Problem87,
-                   Common
+                   Common,
+                   Problem145
 

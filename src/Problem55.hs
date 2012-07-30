@@ -2,10 +2,7 @@
 
 module Problem55 where
 
-import Common (digits)
-
-undigits :: [Int] -> Int
-undigits revdigs = sum $ zipWith (\a b -> a * 10^b) revdigs [0,1..]
+import Common (digits, undigits)
 
 isPalindromic :: [Int] -> Bool
 isPalindromic digs = digs == reverse digs
