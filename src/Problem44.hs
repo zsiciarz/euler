@@ -2,17 +2,19 @@
 
 module Problem44 where
 
+import qualified Data.Set as S
+
 pentagonal :: Int -> Int
 pentagonal n = n * (3 * n - 1) `div` 2
 
 pents :: [Int]
 pents = map pentagonal [1..5000]
 
-isNatural :: Double -> Bool
-isNatural x = (snd $ properFraction x) == 0
+pentsS :: S.Set Int
+pentsS = S.fromList pents
 
 isPentagonal :: Int -> Bool
-isPentagonal n = isNatural $ (sqrt(24.0 * (fromIntegral n) + 1.0) + 1.0) / 6.0
+isPentagonal n = n `S.member` pentsS
 
 solution :: IO ()
 solution = do
