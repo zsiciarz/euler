@@ -80,5 +80,6 @@ executable euler
                    Problem145,
                    Problem32,
                    Problem46,
-                   Problem50
+                   Problem50,
+                   Problem51
 
