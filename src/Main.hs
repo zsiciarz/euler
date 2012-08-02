@@ -1,6 +1,6 @@
 module Main where
 
-import Problem59 (solution)
+import Problem69 (solution)
 
 main :: IO ()
 main = solution
