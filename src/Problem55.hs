@@ -1,23 +1,24 @@
--- does not work
+-- works
 
 module Problem55 where
 
-import Common (digits, undigits)
+digits :: Integer -> [Integer]
+digits 0 = []
+digits x = (x `mod` 10) : digits (x `div` 10)
 
-isPalindromic :: [Int] -> Bool
-isPalindromic digs = digs == reverse digs
+undigits :: [Integer] -> Integer
+undigits ds = sum $ zipWith (\a b -> a * 10^b) ds [0,1..]
 
-iterateUntilPalindrom :: Int -> Bool
-iterateUntilPalindrom x = iterateUntilPalindrom' x 0 where
-    iterateUntilPalindrom' num count
-                                | count >= 50 = False
-                                | digs == revdigs = True
-                                | otherwise = iterateUntilPalindrom' num' (count + 1)
-                                where digs = digits num
-                                      revdigs = reverse digs
-                                      num' = num + undigits revdigs
+isLychrel :: Integer -> Bool
+isLychrel x = iterateUntilPalindrom x 0 where
+    iterateUntilPalindrom num count
+        | count == 50 = True
+        | count > 0 && digs == revdigs = False
+        | otherwise = iterateUntilPalindrom num' (count + 1)
+        where digs = digits num
+              revdigs = reverse digs
+              num' = num + undigits revdigs
 
 solution :: IO ()
 solution = do
-    print $ undigits $ reverse $ digits 349
-    print $ iterateUntilPalindrom 196
+    print $ length $ filter isLychrel [1..10000]
