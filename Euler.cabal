@@ -87,5 +87,6 @@ executable euler
                    Problem203,
                    Problem381,
                    Problem65,
-                   Problem54
+                   Problem54,
+                   Figurate
 

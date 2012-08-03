@@ -3,15 +3,13 @@
 module Problem44 where
 
 import qualified Data.Set as S
-
-pentagonal :: Int -> Int
-pentagonal n = n * (3 * n - 1) `div` 2
+import Figurate (pentagonals)
 
 pents :: [Int]
-pents = map pentagonal [1..5000]
+pents = take 5000 pentagonals
 
 pentsS :: S.Set Int
-pentsS = S.fromList pents
+pentsS = S.fromList $ pents
 
 isPentagonal :: Int -> Bool
 isPentagonal n = n `S.member` pentsS

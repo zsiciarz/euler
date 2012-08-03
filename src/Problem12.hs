@@ -4,6 +4,8 @@ module Problem12 where
 import Data.Numbers.Primes
 import Data.List (nub, tails)
 
+import Figurate (triangulars)
+
 
 combinations :: Int -> [a] -> [[a]]
 combinations 0 _  = [ [] ]
@@ -22,9 +24,6 @@ divisors n = nub $ map product $ totalCombinations $ primeFactors n
 countDivisors :: Int -> Int
 countDivisors n = 1 + length (divisors n)
 
-triangleNumbers :: [Int]
-triangleNumbers = [ sum [1..x] | x <- [1..] ]
-
 solution :: IO ()
 solution = do
-    print $ head $ dropWhile (\x -> countDivisors x < 500) triangleNumbers
+    print $ head $ dropWhile (\x -> countDivisors x < 500) triangulars
