@@ -1,12 +1,15 @@
--- brute force, too slow
+-- works OK, 3 seconds
 
 module Problem69 where
 
-import Data.List (maximumBy)
+import Data.List (maximumBy, nub)
+import Data.Numbers.Primes (primeFactors)
 import Data.Ord (comparing)
+import Data.Ratio
 
-phi :: Int -> Int
-phi n = length $ filter ((==1) . (gcd n)) [1..n]
+phi :: Integer -> Integer
+phi 1 = 1
+phi n = numerator $ (n % 1) * (product $ map (\p -> (1 - 1 % p)) $ nub $ primeFactors n)
 
 solution :: IO ()
 solution = do
