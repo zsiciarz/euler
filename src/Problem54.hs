@@ -1,4 +1,4 @@
--- almost works
+-- works OK
 
 module Problem54 where
 
@@ -15,7 +15,7 @@ charToSuit 'H' = Hearts
 charToSuit 'S' = Spades
 charToSuit _ = error "Bad character"
 
-data Rank = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | King | Queen | Ace deriving (Eq, Ord, Bounded, Enum, Show, Read)
+data Rank = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace deriving (Eq, Ord, Bounded, Enum, Show, Read)
 
 charToRank :: Char -> Rank
 charToRank '2' = Two
@@ -28,8 +28,8 @@ charToRank '8' = Eight
 charToRank '9' = Nine
 charToRank 'T' = Ten
 charToRank 'J' = Jack
-charToRank 'K' = King
 charToRank 'Q' = Queen
+charToRank 'K' = King
 charToRank 'A' = Ace
 charToRank _ = error "Bad character"
 
