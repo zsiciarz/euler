@@ -13,12 +13,12 @@ digits x = (x `mod` 10) : digits (x `div` 10)
 
 phi :: Integer -> Integer
 phi 1 = 1
-phi n = numerator $ (n % 1) * (product $ map (\p -> (1 - 1 % p)) $ nub $ primeFactors n)
+phi n = numerator $ (n % 1) * product (map (\p -> 1 - 1 % p) $ nub $ primeFactors n)
 
 solution :: IO ()
 solution = do
     print $ fst $ minimumBy (comparing snd)
         [ (n, fromIntegral n / fromIntegral p) | n <- [2..10000000]
                                                , let p = phi n
-                                               , (sort $ digits n) == (sort $ digits p)
+                                               , sort (digits n) == sort (digits p)
                                                ]
