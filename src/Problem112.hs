@@ -1,18 +1,26 @@
--- probably works, too slow
+-- works, 1.5 second
 
 module Problem112 where
 
-import Data.List (sort)
+import Data.Array
+
+import Common (digits)
+
+isIncreasing :: [Int] -> Bool
+isIncreasing digs = and $ zipWith (>=) digs $ tail digs
+
+isDecreasing :: [Int] -> Bool
+isDecreasing = isIncreasing . reverse
 
 isBouncy :: Int -> Bool
-isBouncy x = x' /= sx' && x' /= reverse sx' where
-             x' = show x
-             sx' = sort x'
+isBouncy x = not (isIncreasing digs || isDecreasing digs) where
+    digs = digits x
+
+numBouncies :: Array Int Int
+numBouncies = listArray (0,2000000) $ scanl (\acc x -> if isBouncy x then acc + 1 else acc) 0 [1..]
 
 bouncyProportion :: Int -> Double
-bouncyProportion x = numBouncies / x' where
-                     x' = fromIntegral x
-                     numBouncies = fromIntegral $ length $ filter isBouncy [1..x]
+bouncyProportion x = fromIntegral (numBouncies ! x) / fromIntegral x
 
 solution :: IO ()
 solution = do
