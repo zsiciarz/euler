@@ -91,5 +91,6 @@ executable euler
                    Figurate,
                    Problem57,
                    Problem70,
-                   Problem74
+                   Problem74,
+                   Problem104
 

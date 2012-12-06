@@ -13,3 +13,9 @@ factorials = scanl (*) 1 [1..]
 
 factorial :: Int -> Integer
 factorial n = factorials !! n
+
+fibs :: [Integer]
+fibs = map fst $ iterate (\(a,b) -> (b,a+b)) (0,1)
+
+fib :: Int -> Integer
+fib n = fibs !! n
