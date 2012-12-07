@@ -1,16 +1,19 @@
--- brute force, too long
+-- using Farey sequence length
 
 module Problem72 where
 
-import Data.List (sort)
+import Data.List (nub)
 import Data.Ratio
+import Data.Numbers.Primes (primeFactors)
 
-fractions :: [Rational]
-fractions = sort [n % d | d <- [1..10000]
-                        , n <- [1..d]
-                        , gcd n d == 1
-                        ]
+phi :: Integer -> Integer
+phi 1 = 1
+phi n = numerator $ (n % 1) * (product $ map (\p -> (1 - 1 % p)) $ nub $ primeFactors n)
+
+fareyLength :: Integer -> Integer
+fareyLength 1 = 2
+fareyLength n = fareyLength (n - 1) + phi n
 
 solution :: IO ()
 solution = do
-    print $ length fractions
+    print $ fareyLength 1000000 - 2
