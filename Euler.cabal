@@ -94,5 +94,6 @@ executable euler
                    Problem74,
                    Problem104,
                    Problem102,
-                   Problem58
+                   Problem58,
+                   Problem206
 
