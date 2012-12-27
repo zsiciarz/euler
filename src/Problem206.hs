@@ -1,12 +1,7 @@
 
 module Problem206 where
 
-digits :: Integer -> [Integer]
-digits 0 = []
-digits x = (x `mod` 10) : digits (x `div` 10)
-
-maxNumber :: Integer
-maxNumber = floor $ sqrt 1929394959697989900
+import Common (digits)
 
 correctDigits :: Integer -> Bool
 correctDigits n = digs !! 18 == 1 && digs !! 16 == 2 && digs !! 14 == 3 &&

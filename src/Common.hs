@@ -1,21 +1,21 @@
 
 module Common where
 
-digits :: Int -> [Int]
+digits :: Integral a => a -> [a]
 digits 0 = []
 digits x = (x `mod` 10) : digits (x `div` 10)
 
-undigits :: [Int] -> Int
+undigits :: Integral a => [a] -> a
 undigits ds = sum $ zipWith (\a b -> a * 10^b) ds [0,1..]
 
-factorials :: [Integer]
+factorials :: Integral a => [a]
 factorials = scanl (*) 1 [1..]
 
-factorial :: Int -> Integer
+factorial :: Integral a => Int -> a
 factorial n = factorials !! n
 
-fibs :: [Integer]
+fibs :: Integral a => [a]
 fibs = map fst $ iterate (\(a,b) -> (b,a+b)) (0,1)
 
-fib :: Int -> Integer
+fib :: Integral a => Int -> a
 fib n = fibs !! n

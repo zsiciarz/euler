@@ -1,13 +1,7 @@
 
 module Problem74 where
 
-import Common (digits)
-
-factorials :: [Int]
-factorials = scanl (*) 1 [1..10]
-
-factorial :: Int -> Int
-factorial n = factorials !! n
+import Common (digits, factorial)
 
 facDigits :: Int -> Int
 facDigits x = sum $ map factorial $ digits x

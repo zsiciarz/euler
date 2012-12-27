@@ -3,10 +3,9 @@
 module Problem38 where
 
 import Data.List ( inits, sort)
-import Common (digits)
 
 concatenate :: [Int] -> String
-concatenate xs = concat $ map show xs
+concatenate = concatMap show
 
 isPandigital :: String -> Bool
 isPandigital s = sort s == "123456789"

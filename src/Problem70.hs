@@ -7,9 +7,7 @@ import Data.Numbers.Primes (primeFactors)
 import Data.Ord (comparing)
 import Data.Ratio
 
-digits :: Integer -> [Integer]
-digits 0 = []
-digits x = (x `mod` 10) : digits (x `div` 10)
+import Common (digits)
 
 phi :: Integer -> Integer
 phi 1 = 1
