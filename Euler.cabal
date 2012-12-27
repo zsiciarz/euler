@@ -13,7 +13,10 @@ executable euler
                    directory,
                    base,
                    array,
-                   containers
+                   containers,
+                   regex-base,
+                   regex-posix,
+                   regex-compat
   ghc-options:     -Wall -O2 -fno-warn-type-defaults -rtsopts
   other-modules:
                    Problem16,
@@ -95,5 +98,6 @@ executable euler
                    Problem104,
                    Problem102,
                    Problem58,
-                   Problem206
+                   Problem206,
+                   Problem89
 
