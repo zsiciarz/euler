@@ -13,6 +13,7 @@ executable euler
                    directory,
                    base,
                    array,
+                   mtl,
                    containers,
                    regex-base,
                    regex-posix,

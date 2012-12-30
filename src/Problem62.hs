@@ -1,14 +1,27 @@
 
 module Problem62 where
 
-import Data.List (nub, permutations)
+import Control.Monad.State
+import Data.List (sort)
+import Data.Maybe
+import qualified Data.Map as M
+
+import Common (digits)
 
 cubes :: [Integer]
-cubes = [ x^3 | x <- [1000..10000] ]
+cubes = [ x^3 | x <- [1..] ]
 
-findOthers :: Integer -> [String]
-findOthers n = nub $ filter (\s -> (read s::Integer) `elem` cubes && head s /= '0') (permutations (show n))
+-- map from sorted digits to (lowest number, cubic permutation count)
+type Register = M.Map [Integer] (Integer, Int)
+
+updateCount :: Integer -> State Register (Integer, Int)
+updateCount x = do
+    let ds = sort $ digits x
+    register <- get
+    let newRegister = M.insertWith (\(_, _) (x', c) -> (x', c + 1)) ds (x, 1) register
+    put newRegister
+    return $ fromJust $ M.lookup ds newRegister
 
 solution :: IO ()
 solution = do
-    print $ [ x | x <- map findOthers cubes, length x == 5 ]
+    print $ fst $ head $ filter ((== 5) . snd) $ evalState (mapM updateCount cubes) M.empty
