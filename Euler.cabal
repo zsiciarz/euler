@@ -17,7 +17,8 @@ executable euler
                    containers,
                    regex-base,
                    regex-posix,
-                   regex-compat
+                   regex-compat,
+                   vector
   ghc-options:     -Wall -O2 -fno-warn-type-defaults -rtsopts
   other-modules:
                    Problem16,

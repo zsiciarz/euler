@@ -2,7 +2,7 @@
 
 module Problem112 where
 
-import Data.Array
+import qualified Data.Vector.Unboxed as V
 
 import Common (digits)
 
@@ -10,17 +10,17 @@ isIncreasing :: [Int] -> Bool
 isIncreasing digs = and $ zipWith (>=) digs $ tail digs
 
 isDecreasing :: [Int] -> Bool
-isDecreasing = isIncreasing . reverse
+isDecreasing digs = and $ zipWith (<=) digs $ tail digs
 
 isBouncy :: Int -> Bool
 isBouncy x = not (isIncreasing digs || isDecreasing digs) where
     digs = digits x
 
-numBouncies :: Array Int Int
-numBouncies = listArray (0,2000000) $ scanl (\acc x -> if isBouncy x then acc + 1 else acc) 0 [1..]
+numBouncies :: V.Vector Int
+numBouncies = V.scanl (\acc x -> if isBouncy x then acc + 1 else acc) 0 (V.enumFromTo 0 2000000)
 
 bouncyProportion :: Int -> Double
-bouncyProportion x = fromIntegral (numBouncies ! x) / fromIntegral x
+bouncyProportion x = fromIntegral (numBouncies V.! x) / fromIntegral x
 
 solution :: IO ()
 solution = do
