@@ -3,7 +3,8 @@ module Common where
 
 digits :: Integral a => a -> [a]
 digits 0 = []
-digits x = (x `mod` 10) : digits (x `div` 10)
+digits x = r : digits q where
+           (q, r) = x `quotRem` 10
 
 undigits :: Integral a => [a] -> a
 undigits ds = sum $ zipWith (\a b -> a * 10^b) ds [0,1..]
