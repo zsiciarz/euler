@@ -9,14 +9,12 @@ undigits' :: [Int] -> Int
 undigits' = undigits . reverse
 
 products :: [Int]
-products = [ r | xs <- permutations [1..9]
+products = [ undigits' r | xs <- permutations [1..9]
                , i <- [1..5]
                , j <- [1..8-i]
-               , let p = undigits' $ take i xs
-               , let rest = drop i xs
-               , let q = undigits' $ take j rest
-               , let r = undigits' $ drop j rest
-               , p * q == r
+               , let (p, rest) = splitAt i xs
+               , let (q, r) = splitAt j rest
+               , (undigits' p) * (undigits' q) == (undigits' r)
                ]
 
 solution :: IO ()
