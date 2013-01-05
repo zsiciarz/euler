@@ -15,7 +15,20 @@ squares' = takeFourDigits squares
 pentagonals' :: Integral a => [a]
 pentagonals' = takeFourDigits pentagonals
 
+hexagonals' :: Integral a => [a]
+hexagonals' = takeFourDigits hexagonals
+
+heptagonals' :: Integral a => [a]
+heptagonals' = takeFourDigits heptagonals
+
+octagonals' :: Integral a => [a]
+octagonals' = takeFourDigits octagonals
 
 solution :: IO ()
 solution = do
-    print $ length $ [(a, b, c) | a <- triangulars', b <- squares', c <- pentagonals']
+    print $ length $ [(a, b, c, d, e) | a <- triangulars'
+                                , b <- squares'
+                                , c <- pentagonals'
+                                , d <- hexagonals'
+                                , e <- heptagonals'
+                                ]

@@ -4,6 +4,8 @@ module Figurate
 ,   square, squares, isSquare
 ,   pentagonal, pentagonals, isPentagonal
 ,   hexagonal, hexagonals, isHexagonal
+,   heptagonal, heptagonals
+,   octagonal, octagonals
 ) where
 
 isNatural :: Double -> Bool
@@ -45,3 +47,15 @@ hexagonals = map hexagonal [1..]
 
 isHexagonal :: Integral a => a -> Bool
 isHexagonal n = isNatural $ (sqrt(8.0 * (fromIntegral n) + 1.0) + 1.0) / 4.0
+
+heptagonal :: Integral a => a -> a
+heptagonal n = n * (5 * n - 3) `div` 2
+
+heptagonals :: Integral a => [a]
+heptagonals = map heptagonal [1..]
+
+octagonal :: Integral a => a -> a
+octagonal n = n * (3 * n - 2)
+
+octagonals :: Integral a => [a]
+octagonals = map octagonal [1..]
