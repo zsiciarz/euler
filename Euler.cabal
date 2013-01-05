@@ -16,7 +16,7 @@ executable euler
                    mtl,
                    containers,
                    regex-base,
-                   regex-posix,
+                   regex-posix == 0.95.1,
                    regex-compat,
                    vector
   ghc-options:     -Wall -O2 -fno-warn-type-defaults -rtsopts
