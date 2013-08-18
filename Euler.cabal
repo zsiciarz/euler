@@ -16,7 +16,7 @@ executable euler
                    mtl,
                    containers,
                    regex-base,
-                   regex-posix == 0.95.1,
+                   regex-posix,
                    regex-compat,
                    vector,
                    criterion
