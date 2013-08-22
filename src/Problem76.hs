@@ -1,4 +1,3 @@
--- to do
 
 module Problem76 where
 
