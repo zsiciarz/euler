@@ -13,4 +13,4 @@ ways (c:cs) = n where
 
 solution :: IO ()
 solution = do
-    print $ (length $ takeWhile (< 5000) $ map (\t -> ways primes' !! t) [1..]) + 1
+    print $ (length $ takeWhile (< 5000) $ map (ways primes' !!) [1..]) + 1
