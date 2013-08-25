@@ -24,11 +24,10 @@ heptagonals' = takeFourDigits heptagonals
 octagonals' :: Integral a => [a]
 octagonals' = takeFourDigits octagonals
 
+findMatchingNumbers :: Integral a => a -> [a] -> [a]
+findMatchingNumbers n xs = filter (\x -> x `div` 100 == lastDigits) xs where
+                           lastDigits = n `mod` 100
+
 solution :: IO ()
 solution = do
-    print $ length $ [(a, b, c, d, e) | a <- triangulars'
-                                , b <- squares'
-                                , c <- pentagonals'
-                                , d <- hexagonals'
-                                , e <- heptagonals'
-                                ]
+    print $ findMatchingNumbers 1271 octagonals'
