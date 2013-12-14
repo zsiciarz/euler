@@ -13,6 +13,6 @@ ways (c:cs) = n where
                 n = zipWith (+) (ways cs) (replicate c 0 ++ n)
 
 
-solution :: IO ()
-solution = do
+solution76 :: IO ()
+solution76 = do
     print $ ways numbers !! target

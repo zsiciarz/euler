@@ -3,6 +3,6 @@ module Problem7 where
 
 import Data.Numbers.Primes
 
-solution :: IO ()
-solution = do
+solution7 :: IO ()
+solution7 = do
     print $ primes !! 10000

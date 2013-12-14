@@ -23,6 +23,6 @@ compareByRad x y
 e :: Int -> Int
 e n =  sortBy compareByRad [1..100000] !! (n-1)
 
-solution :: IO ()
-solution = do
+solution124 :: IO ()
+solution124 = do
     print $ e 10000

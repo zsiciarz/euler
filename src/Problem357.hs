@@ -15,6 +15,6 @@ divisors x = x : divisors' 2 [1] x
 possiblePrimes :: Int -> [Int] -> [Int]
 possiblePrimes x divs = map (\d -> d + x `div` d) divs
 
-solution :: IO ()
-solution = do
+solution357 :: IO ()
+solution357 = do
     print $ sum [n | n <- [1..100000000], all isPrime $ possiblePrimes n $ divisors n]

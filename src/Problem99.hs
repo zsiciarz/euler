@@ -13,8 +13,8 @@ processLine s = e' * logBase 10.0 b' where
                 e' = read e::Float
                 b:e:_ = splitOn "," s
 
-solution :: IO ()
-solution = do
+solution99 :: IO ()
+solution99 = do
     h <- openFile "D:\\base_exp.txt" ReadMode
     contents <- hGetContents h
     let numbers = zip [1..] $ map processLine $ lines contents

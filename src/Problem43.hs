@@ -8,8 +8,8 @@ import Data.List (permutations)
 pandigitals :: [String]
 pandigitals = filter (\s -> head s /= '0') $ permutations ['0'..'9']
 
-solution :: IO ()
-solution = do
+solution43 :: IO ()
+solution43 = do
     print $ sum [ read x::Integer | x <- pandigitals
                                   , let d   = map digitToInt x
                                   , let d2  = d !! 1

@@ -22,6 +22,6 @@ numBouncies = V.scanl (\acc x -> if isBouncy x then acc + 1 else acc) 0 (V.enumF
 bouncyProportion :: Int -> Double
 bouncyProportion x = fromIntegral (numBouncies V.! x) / fromIntegral x
 
-solution :: IO ()
-solution = do
+solution112 :: IO ()
+solution112 = do
     print $ head $ dropWhile (\x -> bouncyProportion x < 0.99) [21780..]

@@ -22,8 +22,8 @@ decipher input key = zipWith xor input (concat $ repeat key)
 hasCommonWords :: String -> Bool
 hasCommonWords s = "the " `isInfixOf` s && "and " `isInfixOf` s
 
-solution :: IO ()
-solution = do
+solution59 :: IO ()
+solution59 = do
     h <- openFile "/home/zbyszek/cipher1.txt" ReadMode
     input <- fmap readInput $ hGetContents h
     print $ sum $ head $ filter (hasCommonWords . map chr) $ map (decipher input) keys

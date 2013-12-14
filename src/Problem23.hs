@@ -24,6 +24,6 @@ isSum :: Int -> Bool
 isSum x = any isAbundant $ rests x where
           rests n = map (n-) $ takeWhile (<= n `div` 2) abundants
 
-solution :: IO ()
-solution = do
+solution23 :: IO ()
+solution23 = do
     print $ sum $ filter (not . isSum) [1..limit]

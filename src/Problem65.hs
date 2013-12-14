@@ -17,6 +17,6 @@ convergent a n = head a % 1 + p a 1 n
 fracE :: [Integer]
 fracE = 2 : 1 : intercalate [1, 1] [[x] | x <- [2, 4..]]
 
-solution :: IO ()
-solution = do
+solution65 :: IO ()
+solution65 = do
     print $ sum $ digits . numerator $ convergent fracE 99

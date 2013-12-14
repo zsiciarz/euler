@@ -1,5 +1,5 @@
 
 module Problem5 where
 
-solution :: IO ()
-solution = undefined
+solution5 :: IO ()
+solution5 = undefined

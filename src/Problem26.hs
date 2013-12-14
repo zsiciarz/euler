@@ -14,6 +14,6 @@ remainders d r rs = let r' = r `mod` d
                         Just i  -> i + 1
                         Nothing -> remainders d (10*r') (r':rs)
 
-solution :: IO ()
-solution = do
+solution26 :: IO ()
+solution26 = do
     print $ fst $ maximumBy (compare `on` snd) [(n,recurringCycle n) | n <- [1..999]]

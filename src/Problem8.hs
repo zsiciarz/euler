@@ -12,6 +12,6 @@ window n = B.drop n $ B.take (n + 5) number
 prodDigits :: B.ByteString -> Int
 prodDigits w = product [read [c] :: Int | c <- B.unpack w]
 
-solution :: IO ()
-solution = do
+solution8 :: IO ()
+solution8 = do
     print $ maximum [prodDigits $ window n | n <- [1..995]]

@@ -13,8 +13,8 @@ checkTriple (a, b, c) = aa == bb && aa == cc
                           bb = sort $ show b
                           cc = sort $ show c
 
-solution :: IO ()
-solution = do
+solution49 :: IO ()
+solution49 = do
     print $ [ (p, ps, pss) | p <- primes'
                            , s <- [1..9000]
                            , let ps = p + s

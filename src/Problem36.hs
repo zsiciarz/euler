@@ -13,6 +13,6 @@ palindromic10 x = show x == reverse (show x)
 palindromic2 :: Int -> Bool
 palindromic2 x = b == reverse b where b = decToBin x
 
-solution :: IO ()
-solution = do
-    print $ sum [ x | x <- [1..1000000], odd x && palindromic10 x && palindromic2 x]
+solution36 :: IO ()
+solution36 = do
+    print $ sum [ x | x <- [0..1000000], odd x && palindromic10 x && palindromic2 x]

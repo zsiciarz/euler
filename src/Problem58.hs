@@ -20,7 +20,7 @@ primesCount n = counts !! n where
 ratio :: Int -> Double
 ratio n = fromIntegral (primesCount n) / fromIntegral (diagonalsCount n)
 
-solution :: IO ()
-solution = do
+solution58 :: IO ()
+solution58 = do
     print $ sideLength $ head $ dropWhile (\n -> ratio n > 0.1) [1..]
 

@@ -13,8 +13,8 @@ primePowers power = takeWhile (<limit) $ map (^power) primes
 sortAndUnique :: [Integer] -> [Integer]
 sortAndUnique = map head . group . sort
 
-solution :: IO ()
-solution = do
+solution87 :: IO ()
+solution87 = do
     print $ length $ takeWhile (<limit) $ sortAndUnique [a + b + c | a <- primePowers 2
                                                                    , b <- primePowers 3
                                                                    , c <- primePowers 4

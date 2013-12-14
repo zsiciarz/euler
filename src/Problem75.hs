@@ -22,6 +22,6 @@ lengths =  [ l | m <- [2..mlimit]
                , l <= maxLength
                ]
 
-solution :: IO ()
-solution = do
+solution75 :: IO ()
+solution75 = do
     print $ length $ filter (1==) $ map length $ group $ sort lengths

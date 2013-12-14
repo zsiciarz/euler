@@ -28,6 +28,6 @@ findMatchingNumbers :: Integral a => a -> [a] -> [a]
 findMatchingNumbers n xs = filter (\x -> x `div` 100 == lastDigits) xs where
                            lastDigits = n `mod` 100
 
-solution :: IO ()
-solution = do
+solution61 :: IO ()
+solution61 = do
     print $ findMatchingNumbers 1271 octagonals'

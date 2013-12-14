@@ -11,6 +11,6 @@ phi :: Integer -> Integer
 phi 1 = 1
 phi n = numerator $ (n % 1) * (product $ map (\p -> (1 - 1 % p)) $ nub $ primeFactors n)
 
-solution :: IO ()
-solution = do
+solution69 :: IO ()
+solution69 = do
     print $ fst $ maximumBy (comparing snd) [ (n, fromIntegral n / fromIntegral (phi n)) | n <- [1..1000000] ]

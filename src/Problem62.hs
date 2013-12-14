@@ -22,6 +22,6 @@ updateCount x = do
     put newRegister
     return $ fromJust $ M.lookup ds newRegister
 
-solution :: IO ()
-solution = do
+solution62 :: IO ()
+solution62 = do
     print $ fst $ head $ filter ((== 5) . snd) $ evalState (mapM updateCount cubes) M.empty

@@ -32,6 +32,6 @@ concatenablePrimes xs = [[a, b, c, d, e] | a <- xs
                                          , checkPrimes d e
                                          ]
 
-solution :: IO ()
-solution = do
+solution60 :: IO ()
+solution60 = do
     print $ minimum $ map sum (concatenablePrimes primes')

@@ -23,6 +23,6 @@ step :: [Int] -> [Int] -> [Int]
 step [] [x] = [x]
 step (x:xs) (y:yy:ys) = x + max y yy : step xs (yy:ys)
 
-solution :: IO ()
-solution = do
+solution18 :: IO ()
+solution18 = do
     print $ head $ foldr1 step input

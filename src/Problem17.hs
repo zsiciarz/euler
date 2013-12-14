@@ -20,6 +20,6 @@ numberAsWord x
 numbers :: String
 numbers = (concat $ map numberAsWord [1..999]) ++ "onethousand"
 
-solution :: IO ()
-solution = do
+solution17 :: IO ()
+solution17 = do
     print $ length $ filter (`elem` ['a'..'z']) numbers

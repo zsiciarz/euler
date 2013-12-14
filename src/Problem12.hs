@@ -24,6 +24,6 @@ divisors n = nub $ map product $ totalCombinations $ primeFactors n
 countDivisors :: Int -> Int
 countDivisors n = 1 + length (divisors n)
 
-solution :: IO ()
-solution = do
+solution12 :: IO ()
+solution12 = do
     print $ head $ dropWhile (\x -> countDivisors x < 500) triangulars

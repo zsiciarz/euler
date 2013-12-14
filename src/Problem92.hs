@@ -12,6 +12,6 @@ chain 1 = 1
 chain 89 = 89
 chain n = chain $ squareDigits n
 
-solution :: IO ()
-solution = do
+solution92 :: IO ()
+solution92 = do
     print $ length $ filter (\s -> chain s == 89) [1..10000000]

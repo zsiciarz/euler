@@ -8,6 +8,6 @@ lastDigits x n = lastDigits' x n 0 where
     lastDigits' x' n' p = (m * 10^p) + (lastDigits' d (n'-1) (p+1)) where
             (d, m) = x' `quotRem` 10
 
-solution :: IO ()
-solution = do
+solution97 :: IO ()
+solution97 = do
     print $ lastDigits (28433 * 2^7830457 + 1) 10

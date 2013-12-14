@@ -11,7 +11,7 @@ collatzLength = (map collatz [0..] !!) where
 lengths :: [Int]
 lengths = map collatzLength [1..1000000]
 
-solution :: IO ()
-solution = do
+solution14 :: IO ()
+solution14 = do
     let l = lengths
     print $ elemIndex (maximum l) l

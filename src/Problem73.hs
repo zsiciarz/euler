@@ -13,6 +13,6 @@ fractions = [frac | d <- [1..12000]
                   , frac < 1 % 2
                   ]
 
-solution :: IO ()
-solution = do
+solution73 :: IO ()
+solution73 = do
     print $ length $ fractions

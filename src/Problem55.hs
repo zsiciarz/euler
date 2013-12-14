@@ -14,6 +14,6 @@ isLychrel x = iterateUntilPalindrom x 0 where
               revdigs = reverse digs
               num' = num + undigits revdigs
 
-solution :: IO ()
-solution = do
+solution55 :: IO ()
+solution55 = do
     print $ length $ filter isLychrel [1..10000]

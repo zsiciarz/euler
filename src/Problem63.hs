@@ -9,6 +9,6 @@ powersNDigit n = [ p | x <- [1..9]
                      , p < 10^n
                      ]
 
-solution :: IO ()
-solution = do
+solution63 :: IO ()
+solution63 = do
     print $ length $ concat $ takeWhile (not . null) $ map powersNDigit [1..]

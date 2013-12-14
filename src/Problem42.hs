@@ -16,8 +16,8 @@ wordValue word = sum $ map charValue $ filter (`elem` ['A'..'Z']) word
 findSolution :: [Char] -> [[Char]]
 findSolution s = [ word | word <- splitOn "," s, isTriangular $ wordValue word ]
 
-solution :: IO ()
-solution = do
+solution42 :: IO ()
+solution42 = do
         h <- openFile "D:\\words.txt" ReadMode
         contents <- hGetContents h
         print $ length $ findSolution contents

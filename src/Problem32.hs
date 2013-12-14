@@ -17,6 +17,6 @@ products = [ undigits' r | xs <- permutations [1..9]
                , (undigits' p) * (undigits' q) == (undigits' r)
                ]
 
-solution :: IO ()
-solution = do
+solution32 :: IO ()
+solution32 = do
     print $ sum $ nub products

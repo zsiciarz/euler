@@ -15,8 +15,8 @@ nameValue name = sum $ map charValue $ filter (`elem` ['A'..'Z']) name
 findSolution :: [Char] -> Int
 findSolution s = sum [ i * (nameValue name) | (i, name) <- zip [1..] $ sort (splitOn "," s) ]
 
-solution :: IO ()
-solution = do
+solution22 :: IO ()
+solution22 = do
     h <- openFile "D:\\names.txt" ReadMode
     contents <- hGetContents h
     print $ findSolution contents

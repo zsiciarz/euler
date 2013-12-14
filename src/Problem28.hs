@@ -10,6 +10,6 @@ sumDiagonals level = (prevSum + prevValue + step
         where (prevSum, prevValue) = sumDiagonals (level - 1)
               step = 2 * (level - 1)
 
-solution :: IO ()
-solution = do
+solution28 :: IO ()
+solution28 = do
     print $ fst (sumDiagonals 501)

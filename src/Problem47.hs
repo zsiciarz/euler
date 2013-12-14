@@ -7,8 +7,8 @@ import Data.Numbers.Primes (primeFactors)
 countFactors :: Int -> Int
 countFactors = length . nub . primeFactors
 
-solution :: IO ()
-solution = do
+solution47 :: IO ()
+solution47 = do
     print $ head [ x | x <- [1..]
                      , let y = x + 1
                      , let z = x + 2

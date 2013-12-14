@@ -8,6 +8,6 @@ parts :: Int -> [Int]
 parts num = map read $ (tail $ inits s) ++ (init $ tails s) where
     s = show num
 
-solution :: IO ()
-solution = do
+solution37 :: IO ()
+solution37 = do
     print $ sum $ take 11 [x | x <- primes, x > 7, all isPrime $ parts x]

@@ -9,6 +9,6 @@ import Common (factorial)
 s :: Int -> Integer
 s p = (sum $ map (\k -> factorial (p - k)) [1..5]) `mod` (fromIntegral p)
 
-solution :: IO ()
-solution = do
+solution381 :: IO ()
+solution381 = do
     print $ sum $ map s $ takeWhile (<1000) $ dropWhile (<5) primes

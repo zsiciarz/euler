@@ -27,7 +27,7 @@ isPrimeProof ds = all (not . isPrime) $ concat [
 replaceDigit :: [Integer] -> Integer -> Integer -> [Integer]
 replaceDigit digs index replacement = [if i == index then replacement else d | (d, i) <- zip digs [0..]]
 
-solution :: IO ()
-solution = do
+solution200 :: IO ()
+solution200 = do
     print $ head $ drop 199 $ filter (isPrimeProof . digits) $ sort squbes
 

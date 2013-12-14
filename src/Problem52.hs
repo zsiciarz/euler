@@ -6,8 +6,8 @@ import Data.List
 sameDigits :: Integer -> Integer -> Bool
 sameDigits m n = sort (show m) == sort (show n)
 
-solution :: IO ()
-solution = do
+solution52 :: IO ()
+solution52 = do
     print $ head [ x | x <- [1..]
                      , sameDigits x (2*x)
                      , sameDigits x (3*x)

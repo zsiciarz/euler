@@ -7,8 +7,8 @@ import Text.Regex
 replace :: String -> String -> String -> String
 replace search replacement source = subRegex (mkRegex search) source replacement
 
-solution :: IO ()
-solution = do
+solution89 :: IO ()
+solution89 = do
     h <- openFile "/home/zbyszek/roman.txt" ReadMode
     contents <- hGetContents h
     let newLength = length $ replace "IIII" "IV"

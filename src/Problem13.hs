@@ -1,8 +1,8 @@
 
 module Problem13 where
 
-solution :: IO ()
-solution = do
+solution13 :: IO ()
+solution13 = do
     print $ take 10 $ show $ sum l
           where l = [   37107287533902102798797998220837590246510135740250,
                         46376937677490009712648124896970078050417018260538,

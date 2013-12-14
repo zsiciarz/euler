@@ -16,8 +16,8 @@ f 999 = 999 * 111333555778
 f 9999 = 9999 * 1111333355557778
 f n = head [x | x <- [n, 2*n..], correctDigits x]
 
-solution :: IO ()
-solution = do
+solution303 :: IO ()
+solution303 = do
     let results = map (\n -> f n `div` n) [1..10000]
     -- print $ results
     print $ sum results

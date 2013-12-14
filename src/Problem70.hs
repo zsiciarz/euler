@@ -13,8 +13,8 @@ phi :: Integer -> Integer
 phi 1 = 1
 phi n = numerator $ (n % 1) * product (map (\p -> 1 - 1 % p) $ nub $ primeFactors n)
 
-solution :: IO ()
-solution = do
+solution70 :: IO ()
+solution70 = do
     print $ fst $ minimumBy (comparing snd)
         [ (n, fromIntegral n / fromIntegral p) | n <- [2..10000000]
                                                , let p = phi n

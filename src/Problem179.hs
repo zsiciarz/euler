@@ -13,6 +13,6 @@ numDivisors x = numDivisors' 2 2 x
                                else numDivisors' (d+1) (divs+2) n
             | otherwise      = numDivisors' (d+1) divs n
 
-solution :: IO ()
-solution = do
+solution179 :: IO ()
+solution179 = do
     print $ sum $ map (\l -> length l - 1) . group $ map numDivisors [2..10000000]

@@ -20,5 +20,5 @@ countFirstSundays 2001 _ = 0
 countFirstSundays year prevLastDay = (length sundays) + countFirstSundays (year + 1) lastDay
                     where (sundays, lastDay) = firstSundays year prevLastDay
 
-solution :: IO ()
-solution = undefined
+solution19 :: IO ()
+solution19 = undefined

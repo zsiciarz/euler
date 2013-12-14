@@ -31,8 +31,8 @@ triangleContains triangle@(Triangle p1 p2 p3) p = 1e-6 > abs (a - a1 - a2 - a3) 
                                                   a2 = area (Triangle p1 p p3)
                                                   a3 = area (Triangle p1 p2 p)
 
-solution :: IO ()
-solution = do
+solution102 :: IO ()
+solution102 = do
     h <- openFile "/home/zbyszek/triangles.txt" ReadMode
     contents <- hGetContents h
     print $ length $ filter (\t -> triangleContains t (Point 0 0)) $ map readTriangle $ lines contents
