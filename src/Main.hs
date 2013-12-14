@@ -198,6 +198,15 @@ solutions = M.fromList [("1", solution1),
                         ("381", solution381)
                        ]
 
+
+runSolution :: String -> IO ()
+runSolution problem = do
+    putStrLn $ "Running solution for problem #" ++ problem
+    case M.lookup problem solutions of
+        Just solution -> solution
+        Nothing -> putStrLn "No solution for that problem"
+
+
 main :: IO ()
 main = do
     args <- getArgs
@@ -205,7 +214,4 @@ main = do
         then putStrLn "Usage: euler <PROBLEM NUMBER>"
         else do
             let problem = args !! 0
-            putStrLn $ "Running solution for problem #" ++ problem
-            case M.lookup problem solutions of
-                Just solution -> solution
-                Nothing -> putStrLn "No solution for that problem"
+            runSolution problem
