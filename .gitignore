@@ -1,6 +1,8 @@
 .project
 dist/
 cabal-dev/
+.cabal-sandbox/
+cabal.sandbox.config
 .dist*
 *.o
 *.hi
