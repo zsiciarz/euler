@@ -2,4 +2,4 @@
 module Problem5 where
 
 solution5 :: IO ()
-solution5 = undefined
+solution5 = putStrLn "TODO"

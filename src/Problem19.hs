@@ -21,4 +21,4 @@ countFirstSundays year prevLastDay = (length sundays) + countFirstSundays (year 
                     where (sundays, lastDay) = firstSundays year prevLastDay
 
 solution19 :: IO ()
-solution19 = undefined
+solution19 = putStrLn "TODO"
