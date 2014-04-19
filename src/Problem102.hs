@@ -9,8 +9,8 @@ data Point = Point Double Double deriving Show
 
 data Triangle = Triangle Point Point Point deriving Show
 
-readTriangle :: String -> Triangle
-readTriangle s = Triangle (Point x1 y1) (Point x2 y2) (Point x3 y3) where
+instance Read Triangle where
+    readsPrec _ s = [(Triangle (Point x1 y1) (Point x2 y2) (Point x3 y3), "")] where
                  [x1, y1, x2, y2, x3, y3] = map read $ splitOn "," s
 
 distance :: Point -> Point -> Double
@@ -35,5 +35,5 @@ solution102 :: IO ()
 solution102 = do
     h <- openFile "/home/zbyszek/triangles.txt" ReadMode
     contents <- hGetContents h
-    print $ length $ filter (\t -> triangleContains t (Point 0 0)) $ map readTriangle $ lines contents
+    print $ length $ filter (\t -> triangleContains t (Point 0 0)) $ map read $ lines contents
 
