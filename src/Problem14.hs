@@ -13,5 +13,4 @@ lengths = V.map collatzLength $ V.enumFromN 1 10000
 
 solution14 :: IO ()
 solution14 = do
-    let l = lengths
-    print $ V.elemIndex (V.maximum l) l
+    print $ V.maxIndex lengths
