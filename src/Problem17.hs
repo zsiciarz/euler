@@ -19,4 +19,4 @@ letterCount x
 
 solution17 :: IO ()
 solution17 = do
-    print $ length "onethousand" + sum (map letterCount [1..999])
+    print $ foldr (\x y -> letterCount x + y) (length "onethousand") [1..999]
