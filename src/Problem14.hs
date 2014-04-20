@@ -1,6 +1,6 @@
 module Problem14 where
 
-import Data.List
+import qualified Data.Vector.Unboxed as V
 
 collatzLength :: Int -> Int
 collatzLength = (map collatz [0..] !!) where
@@ -8,10 +8,10 @@ collatzLength = (map collatz [0..] !!) where
     collatz n = 1 + collatzLength(nextValue) where
         nextValue = if even n then n `div` 2 else 3 * n + 1
 
-lengths :: [Int]
-lengths = map collatzLength [1..1000000]
+lengths :: V.Vector Int
+lengths = V.map collatzLength $ V.enumFromN 1 10000
 
 solution14 :: IO ()
 solution14 = do
     let l = lengths
-    print $ elemIndex (maximum l) l
+    print $ V.elemIndex (V.maximum l) l
