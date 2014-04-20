@@ -17,4 +17,4 @@ prodSides (a, b, c) = a * b * c
 
 solution9 :: IO ()
 solution9 = do
-    print $ head $ map prodSides (filter isPythagorean sides)
+    print $ prodSides $ head $ filter isPythagorean sides
