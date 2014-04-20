@@ -1,9 +1,8 @@
 
 module Problem16 where
 
-import Data.Char (digitToInt)
-
+import Common (digits)
 
 solution16 :: IO ()
 solution16 = do
-    print $ sum $ map digitToInt $ show (2^1000)
+    print $ sum $ digits (2^1000 :: Integer)
