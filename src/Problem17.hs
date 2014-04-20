@@ -1,25 +1,22 @@
 
 module Problem17 where
 
-lowNumbers :: [String]
-lowNumbers = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+lowNumbers :: [Int]
+lowNumbers = map length ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
               "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
 
-tens :: [String]
-tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+tens :: [Int]
+tens = map length ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
 
-numberAsWord :: Int -> String
-numberAsWord x
-              | x < 20 = lowNumbers !! x
-              | x < 100 = tens !! (d10 - 2) ++ numberAsWord m10
-              | m100 == 0 = lowNumbers !! d100 ++ " hundred"
-              | otherwise = lowNumbers !! d100 ++ " hundred and " ++ numberAsWord m100
-              where (d10, m10) = divMod x 10
-                    (d100, m100) = divMod x 100
-
-numbers :: String
-numbers = (concat $ map numberAsWord [1..999]) ++ "onethousand"
+letterCount :: Int -> Int
+letterCount x
+    | x < 20 = lowNumbers !! x
+    | x < 100 = tens !! (d10 - 2) + letterCount m10
+    | m100 == 0 = lowNumbers !! d100 + length "hundred"
+    | otherwise = lowNumbers !! d100 + length "hundredand" + letterCount m100
+    where (d10, m10) = divMod x 10
+          (d100, m100) = divMod x 100
 
 solution17 :: IO ()
 solution17 = do
-    print $ length $ filter (`elem` ['a'..'z']) numbers
+    print $ length "onethousand" + sum (map letterCount [1..999])
