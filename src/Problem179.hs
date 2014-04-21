@@ -3,15 +3,7 @@
 module Problem179 where
 
 import Data.List (group)
-
-numDivisors :: Integer -> Int
-numDivisors x = numDivisors' 2 2 x
-    where numDivisors' d divs n
-            | d^2 > n        = divs
-            | n `mod` d == 0 = if n `div` d == d
-                               then numDivisors' (d+1) (divs+1) n
-                               else numDivisors' (d+1) (divs+2) n
-            | otherwise      = numDivisors' (d+1) divs n
+import Common (numDivisors)
 
 solution179 :: IO ()
 solution179 = do
