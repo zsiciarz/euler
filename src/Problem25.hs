@@ -1,9 +1,8 @@
 
 module Problem25 where
 
-fib :: [Int]
-fib = 1 : 1 : zipWith (+) fib (tail fib)
+import Common (fibs)
 
 solution25 :: IO ()
 solution25 = do
-    print $ length $ takeWhile (<1000) ( map (length . show) fib )
+    print $ length $ takeWhile (<1000) (map (length . show) fibs)
