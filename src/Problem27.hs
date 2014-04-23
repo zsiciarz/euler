@@ -2,6 +2,7 @@
 module Problem27 where
 
 import Data.List (maximumBy)
+import Data.Ord (comparing)
 import Data.Numbers.Primes
 
 formula :: Int -> Int -> Int -> Int
@@ -16,4 +17,4 @@ pairs = [ ((a, b), length $ primesByFormula a b) | a <- [-999..999], b <- [-999.
 solution27 :: IO ()
 solution27 = do
     print $ fst p * snd p
-        where p = fst $ maximumBy (\t1 t2 -> snd t1 `compare` snd t2) pairs
+        where p = fst $ maximumBy (comparing snd) pairs
