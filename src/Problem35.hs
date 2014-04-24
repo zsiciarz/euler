@@ -13,7 +13,7 @@ rotations :: [a] -> [[a]]
 rotations l = drop 1 $ map revJoin (inits l `zip` tails l)
 
 isCircular :: Int -> Bool
-isCircular n = all isPrime (map undigits (rotations (digits n)))
+isCircular = all isPrime . map undigits . rotations . digits
 
 solution35 :: IO ()
 solution35 = do
