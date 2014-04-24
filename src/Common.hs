@@ -4,10 +4,13 @@ module Common where
 import Data.List (group)
 import Data.Numbers.Primes (primeFactors)
 
+digitsBase :: Integral a => a -> a -> [a]
+digitsBase _ 0 = []
+digitsBase base x = r : digits q where
+                    (q, r) = x `quotRem` base
+
 digits :: Integral a => a -> [a]
-digits 0 = []
-digits x = r : digits q where
-           (q, r) = x `quotRem` 10
+digits = digitsBase 10
 
 undigits :: Integral a => [a] -> a
 undigits ds = sum $ zipWith (\a b -> a * 10^b) ds [0,1..]
