@@ -6,11 +6,8 @@ import Data.List (inits, tails)
 
 import Common (digits, undigits)
 
-revJoin :: ([a], [a]) -> [a]
-revJoin (x, y) = y ++ x
-
 rotations :: [a] -> [[a]]
-rotations l = drop 1 $ map revJoin (inits l `zip` tails l)
+rotations l = drop 1 $ map (\(x, y) -> y ++ x) (inits l `zip` tails l)
 
 isCircular :: Int -> Bool
 isCircular = all isPrime . map undigits . rotations . digits
