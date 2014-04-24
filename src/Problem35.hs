@@ -2,7 +2,7 @@
 module Problem35 where
 
 import Data.Numbers.Primes
-import Data.List
+import Data.List (inits, tails)
 
 import Common (digits, undigits)
 
