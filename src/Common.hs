@@ -6,7 +6,7 @@ import Data.Numbers.Primes (primeFactors)
 
 digitsBase :: Integral a => a -> a -> [a]
 digitsBase _ 0 = []
-digitsBase base x = r : digits q where
+digitsBase base x = r : digitsBase base q where
                     (q, r) = x `quotRem` base
 
 digits :: Integral a => a -> [a]
