@@ -3,10 +3,11 @@ module Problem37 where
 
 import Data.List (inits, tails)
 import Data.Numbers.Primes
+import Common (digits, undigits)
 
 parts :: Int -> [Int]
-parts num = map read $ (tail $ inits s) ++ (init $ tails s) where
-    s = show num
+parts num = map undigits $ (tail $ inits s) ++ (init $ tails s) where
+    s = digits num
 
 solution37 :: IO ()
 solution37 = do
