@@ -15,6 +15,6 @@ makeNumber x = last $ takeWhile (\s -> length s < 10) $ map concatenate $ inits 
 
 solution38 :: IO ()
 solution38 = do
-    print $ last . sort $ [x | x <- map makeNumber [1..999999]
-                             , isPandigital x
-                             ]
+    print $ maximum [x | x <- map makeNumber [1..999999]
+                       , isPandigital x
+                       ]
