@@ -9,4 +9,4 @@ fraction = concat [ show x | x <- [1..] ]
 
 solution40 :: IO ()
 solution40 = do
-    print $ product [ digitToInt (fraction !! (i-1)) | i <- [1, 10, 100, 1000, 10000, 100000, 1000000] ]
+    print $ product [digitToInt (fraction !! i) | i <- [0, 9, 99, 999, 9999, 99999, 999999]]
