@@ -5,7 +5,7 @@ import Data.Char
 
 -- brute force approach
 fraction :: String
-fraction = concat [ show x | x <- [1..] ]
+fraction = concatMap show [1..]
 
 solution40 :: IO ()
 solution40 = do
