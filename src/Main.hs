@@ -1,12 +1,12 @@
 module Main where
 
-import System.Environment (getArgs)
+import Options.Applicative
 import Solutions (SolutionOptions (..), runSolution)
 
+solutionOptions :: Parser SolutionOptions
+solutionOptions = SolutionOptions <$> strOption (long "problem" <> metavar "NUM")
 
 main :: IO ()
-main = do
-    args <- getArgs
-    case args of
-        []          -> putStrLn "Usage: euler <PROBLEM NUMBER>"
-        (problem:_) -> runSolution $ SolutionOptions problem
+main = execParser opts >>= runSolution
+    where
+        opts = info (helper <*> solutionOptions) (fullDesc)
