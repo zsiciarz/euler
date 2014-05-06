@@ -9,4 +9,4 @@ main = do
     args <- getArgs
     case args of
         []          -> putStrLn "Usage: euler <PROBLEM NUMBER>"
-        (problem:_) -> runSolution $ SolutionOptions (read problem)
+        (problem:_) -> runSolution $ SolutionOptions problem
