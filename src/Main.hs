@@ -9,4 +9,4 @@ solutionOptions = SolutionOptions <$> option (long "problem" <> metavar "NUM")
 main :: IO ()
 main = execParser opts >>= runSolution
     where
-        opts = info (helper <*> solutionOptions) (fullDesc)
+        opts = info (helper <*> solutionOptions) fullDesc
