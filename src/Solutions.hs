@@ -99,6 +99,9 @@ import Problem357 (solution357)
 import Problem381 (solution381)
 
 
+data SolutionOptions = SolutionOptions { problemNumber :: Int }
+
+
 solutions :: M.Map String (IO ())
 solutions = M.fromList [("1", solution1),
                         ("2", solution2),
@@ -198,9 +201,9 @@ solutions = M.fromList [("1", solution1),
                        ]
 
 
-runSolution :: String -> IO ()
-runSolution problem = do
-    putStrLn $ "Running solution for problem #" ++ problem
-    case M.lookup problem solutions of
+runSolution :: SolutionOptions -> IO ()
+runSolution (SolutionOptions problem) = do
+    putStrLn $ "Running solution for problem #" ++ show problem
+    case M.lookup (show problem) solutions of
         Just solution -> solution
         Nothing -> putStrLn "No solution for that problem"

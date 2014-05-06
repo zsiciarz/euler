@@ -1,7 +1,7 @@
 module Main where
 
 import System.Environment (getArgs)
-import Solutions (runSolution)
+import Solutions (SolutionOptions (..), runSolution)
 
 
 main :: IO ()
@@ -9,4 +9,4 @@ main = do
     args <- getArgs
     case args of
         []          -> putStrLn "Usage: euler <PROBLEM NUMBER>"
-        (problem:_) -> runSolution problem
+        (problem:_) -> runSolution $ SolutionOptions (read problem)
