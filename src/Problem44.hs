@@ -9,7 +9,7 @@ pents :: [Int]
 pents = take 5000 pentagonals
 
 pentsS :: S.Set Int
-pentsS = S.fromList $ pents
+pentsS = S.fromList pents
 
 isPentagonal :: Int -> Bool
 isPentagonal n = n `S.member` pentsS
