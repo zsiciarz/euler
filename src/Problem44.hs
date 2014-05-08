@@ -16,11 +16,9 @@ isPentagonal n = n `S.member` pentsS
 
 solution44 :: IO ()
 solution44 = do
-    print $ head [ d | x <- pents
-                     , y <- pents
-                     , let s = x + y
-                     , let d = x - y
-                     , x > y
-                     , isPentagonal s
-                     , isPentagonal d
-                     ]
+    print $ head [x - y | x <- pents
+                        , y <- pents
+                        , x > y
+                        , isPentagonal (x + y)
+                        , isPentagonal (x - y)
+                        ]
