@@ -5,7 +5,7 @@ import Data.List (permutations)
 import Common (undigits)
 
 pandigitalDigits :: [[Integer]]
-pandigitalDigits = filter (\s -> head s /= 0) $ permutations [0..9]
+pandigitalDigits = filter ((/= 0) . head) $ permutations [0..9]
 
 solution43 :: IO ()
 solution43 = do
