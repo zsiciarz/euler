@@ -20,7 +20,7 @@ solution49 = do
                            , let ps = p + s
                            , let pss = p + s + s
                            , isPrime ps
-                           , isPrime (pss)
+                           , isPrime pss
                            , pss < 10000
                            , checkTriple (p, ps, pss)
                            ]
