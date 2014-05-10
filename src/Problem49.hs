@@ -8,11 +8,9 @@ import Common (digits)
 primes' :: [Int]
 primes' = dropWhile (<1000) $ takeWhile (<10000) primes
 
-checkTriple :: (Int, Int, Int) -> Bool
-checkTriple (a, b, c) = aa == bb && aa == cc
-                    where aa = sort $ digits a
-                          bb = sort $ digits b
-                          cc = sort $ digits c
+checkPermutations :: [Int] -> Bool
+checkPermutations xs = all (== head xs') (tail xs') where
+    xs' = map (sort . digits) xs
 
 solution49 :: IO ()
 solution49 = do
@@ -23,5 +21,5 @@ solution49 = do
                            , isPrime ps
                            , isPrime pss
                            , pss < 10000
-                           , checkTriple (p, ps, pss)
+                           , checkPermutations [p, ps, pss]
                            ]
