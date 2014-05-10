@@ -1,4 +1,3 @@
--- works
 
 module Problem46 where
 
@@ -16,4 +15,4 @@ solution46 = do
     print $ head [x | x <- [33, 35..]
                     , not $ isPrime x
                     , all (not . isNaturalSquare) $ rests x
-                   ]
+                    ]
