@@ -5,8 +5,8 @@ module Problem46 where
 import Data.Numbers.Primes (primes, isPrime)
 
 isNaturalSquare :: Int -> Bool
-isNaturalSquare x = (snd $ properFraction root) == 0 where
-                    root = sqrt $ fromIntegral x
+isNaturalSquare x = fraction == 0 where
+                    (_, fraction) = properFraction . sqrt . fromIntegral $ x
 
 rests :: Int -> [Int]
 rests x = [(x - p) `div` 2 | p <- takeWhile (<x) primes]
