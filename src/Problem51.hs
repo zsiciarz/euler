@@ -22,7 +22,7 @@ solution51 = do
     print $ head [head replacements | n <- primes
                                     , let digs = digits n
                                     , let rest = digs \\ nub digs
-                                    , length rest > 0
+                                    , not $ null rest
                                     , r <- rest
                                     , let replacements = findReplacements digs r
                                     , length replacements == 8
