@@ -2,9 +2,10 @@
 module Problem52 where
 
 import Data.List
+import Common (digits)
 
 sameDigits :: Integer -> Integer -> Bool
-sameDigits m n = sort (show m) == sort (show n)
+sameDigits m n = sort (digits m) == sort (digits n)
 
 solution52 :: IO ()
 solution52 = do
