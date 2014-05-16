@@ -38,7 +38,7 @@ data Card = Card { rank :: Rank
                  } deriving (Eq, Show, Read)
 
 instance Ord Card where
-    c1 `compare` c2 = rank c1 `compare` rank c2
+    compare = compare `on` rank
 
 stringToCard :: String -> Card
 stringToCard [r, s] = Card (charToRank r) (charToSuit s)
@@ -57,7 +57,7 @@ data Hand = RoyalFlush
           deriving (Eq, Show, Read)
 
 compareRests :: [Rank] -> [Rank] -> Ordering
-compareRests rest1 rest2 = reverse rest1 `compare` reverse rest2
+compareRests = compare `on` reverse
 
 instance Ord Hand where
     RoyalFlush `compare` RoyalFlush = EQ
