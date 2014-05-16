@@ -153,4 +153,4 @@ solution54 :: IO ()
 solution54 = do
     h <- openFile "data/poker.txt" ReadMode
     contents <- hGetContents h
-    print $ length $ filter (\(h1, h2) -> h1 > h2) $ map lineToHands $ lines contents
+    print $ length $ filter (uncurry (>)) $ map lineToHands $ lines contents
