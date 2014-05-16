@@ -6,6 +6,7 @@ import System.IO
 import Control.Applicative ((<$>))
 import Data.List (isInfixOf, groupBy, sort)
 import Data.Function (on)
+import Data.Monoid ((<>))
 
 data Suit = Clubs | Diamonds | Hearts | Spades deriving (Eq, Ord, Enum, Show, Read)
 
@@ -57,9 +58,6 @@ data Hand = RoyalFlush
           | HighCard Rank [Rank]
           deriving (Eq, Show, Read)
 
-compareRests :: [Rank] -> [Rank] -> Ordering
-compareRests = compare `on` reverse
-
 instance Ord Hand where
     RoyalFlush `compare` RoyalFlush = EQ
     RoyalFlush `compare` _ = GT
@@ -69,15 +67,13 @@ instance Ord Hand where
     StraightFlush _ `compare` _ = GT
     _ `compare` StraightFlush _ = LT
 
-    Quads r1 rest1 `compare` Quads r2 rest2
-        | r1 == r2  = rest1 `compare` rest2
-        | otherwise = r1 `compare` r2
+    Quads r1 rest1 `compare` Quads r2 rest2 =
+        (r1 `compare` r2) <> (rest1 `compare` rest2)
     Quads _ _ `compare` _ = GT
     _ `compare` Quads _ _ = LT
 
-    FullHouse triple1 double1 `compare` FullHouse triple2 double2
-        | triple1 == triple2 = double1 `compare` double2
-        | otherwise = triple1 `compare` triple2
+    FullHouse triple1 double1 `compare` FullHouse triple2 double2 =
+        (triple1 `compare` triple2) <> (double1 `compare` double2)
     FullHouse _ _ `compare` _ = GT
     _ `compare` FullHouse _ _ = LT
 
@@ -89,28 +85,23 @@ instance Ord Hand where
     Straight _ `compare` _ = GT
     _ `compare` Straight _ = LT
 
-    ThreeOfAKind r1 rest1 `compare` ThreeOfAKind r2 rest2
-        | r1 == r2 = rest1 `compareRests` rest2
-        | otherwise = r1 `compare` r2
+    ThreeOfAKind r1 rest1 `compare` ThreeOfAKind r2 rest2 =
+        (r1 `compare` r2) <> (compare `on` reverse) rest1 rest2
     ThreeOfAKind _ _ `compare` _ = GT
     _ `compare` ThreeOfAKind _ _ = LT
 
-    TwoPairs high1 low1 rest1 `compare` TwoPairs high2 low2 rest2
-        | high1 == high2 && low1 == low2 = rest1 `compare` rest2
-        | high1 == high2 = low1 `compare` low2
-        | otherwise = high1 `compare` high2
+    TwoPairs high1 low1 rest1 `compare` TwoPairs high2 low2 rest2 =
+        (high1 `compare` high2) <> (low1 `compare` low2) <> (rest1 `compare` rest2)
     TwoPairs _ _ _ `compare` _ = GT
     _ `compare` TwoPairs _ _ _ = LT
 
-    Pair r1 rest1 `compare` Pair r2 rest2
-        | r1 == r2 = rest1 `compareRests` rest2
-        | otherwise = r1 `compare` r2
+    Pair r1 rest1 `compare` Pair r2 rest2 =
+        (r1 `compare` r2) <> (compare `on` reverse) rest1 rest2
     Pair _ _ `compare` _ = GT
     _ `compare` Pair _ _ = LT
 
-    HighCard r1 rest1 `compare` HighCard r2 rest2
-        | r1 == r2 = rest1 `compareRests` rest2
-        | otherwise = r1 `compare` r2
+    HighCard r1 rest1 `compare` HighCard r2 rest2 =
+        (r1 `compare` r2) <> (compare `on` reverse) rest1 rest2
 
 findHand :: [Card] -> Hand
 findHand cards
