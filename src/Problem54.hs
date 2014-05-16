@@ -3,6 +3,7 @@
 module Problem54 where
 
 import System.IO
+import Control.Applicative ((<$>))
 import Data.List (isInfixOf, groupBy, sort)
 import Data.Function (on)
 
@@ -150,5 +151,5 @@ lineToHands s = ( findHand $ sort $ take 5 cards
 solution54 :: IO ()
 solution54 = do
     h <- openFile "data/poker.txt" ReadMode
-    hands <- fmap (map lineToHands . lines) $ hGetContents h
+    hands <- (map lineToHands . lines) <$> hGetContents h
     print $ length $ filter (uncurry (>)) hands
