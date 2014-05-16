@@ -1,12 +1,11 @@
--- works OK
 
 module Problem54 where
 
-import System.IO
 import Control.Applicative ((<$>))
-import Data.List (isInfixOf, groupBy, sort)
 import Data.Function (on)
+import Data.List (isInfixOf, groupBy, sort)
 import Data.Monoid ((<>))
+import System.IO (IOMode(..), openFile, hGetContents)
 
 data Suit = Clubs | Diamonds | Hearts | Spades deriving (Eq, Ord, Enum, Show, Read)
 
