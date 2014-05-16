@@ -13,4 +13,4 @@ sameDigits' n x = sameDigits x (n*x)
 
 solution52 :: IO ()
 solution52 = do
-    print $ head [x | x <- [1..], and $ sameDigits' <$> [2..6] <*> [x]]
+    print $ head [x | x <- [1..], and $ liftA2 sameDigits' [2..6] [x]]
