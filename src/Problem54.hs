@@ -114,9 +114,7 @@ instance Ord Hand where
 findHand :: [Card] -> Hand
 findHand cards
     | allEqual suits && consecutive ranks =
-        if lastRank == Ace
-        then RoyalFlush
-        else StraightFlush lastRank
+        if lastRank == Ace then RoyalFlush else StraightFlush lastRank
     | allEqual suits = Flush lastRank
     | consecutive ranks = Straight lastRank
     | groups == [4, 1] = Quads firstRank lastRank
