@@ -151,6 +151,6 @@ lineToHands s = ( findHand $ sort $ take 5 cards
 
 solution54 :: IO ()
 solution54 = do
-    h <- openFile "D:\\poker.txt" ReadMode
+    h <- openFile "data/poker.txt" ReadMode
     contents <- hGetContents h
     print $ length $ filter (\(h1, h2) -> h1 > h2) $ map lineToHands $ lines contents
