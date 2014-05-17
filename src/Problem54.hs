@@ -47,6 +47,7 @@ stringToCard [r, s] = do
     r' <- charToRank r
     s' <- charToSuit s
     return $ Card r' s'
+stringToCard _ = Nothing
 
 data Hand = RoyalFlush
           | StraightFlush Rank
