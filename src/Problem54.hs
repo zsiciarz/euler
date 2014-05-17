@@ -4,7 +4,7 @@ module Problem54 where
 import Control.Applicative ((<$>), liftA2)
 import Control.Arrow ((***))
 import Data.Function (on)
-import Data.List (isInfixOf, groupBy, sort)
+import Data.List (isInfixOf, group, sort)
 import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
 import System.IO (IOMode(..), withFile, hGetContents)
@@ -126,7 +126,7 @@ findHand cards
     | groups == [1, 1, 1, 2] = Pair lastRank $ filter (/= lastRank) ranks
     | otherwise = HighCard lastRank $ filter (/= lastRank) ranks
     where [firstRank, _, midRank, _, lastRank] = ranks
-          groups = map length $ groupBy ((==) `on` rank) cards
+          groups = map length $ group ranks
           allEqual [] = False
           allEqual (x:xs) = all (==x) xs
           consecutive = (`isInfixOf` [Two .. Ace])
