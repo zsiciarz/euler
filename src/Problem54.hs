@@ -6,7 +6,7 @@ import Data.Function (on)
 import Data.List (isInfixOf, groupBy, sort)
 import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
-import System.IO (IOMode(..), openFile, hGetContents)
+import System.IO (IOMode(..), withFile, hGetContents)
 
 data Suit = Clubs | Diamonds | Hearts | Spades deriving (Eq, Ord, Enum, Show, Read)
 
@@ -144,6 +144,6 @@ lineToHands s = ( findHand $ sort $ take 5 cards
 
 solution54 :: IO ()
 solution54 = do
-    h <- openFile "data/poker.txt" ReadMode
-    hands <- (map lineToHands . lines) <$> hGetContents h
-    print $ length $ filter (uncurry (>)) hands
+    withFile "data/poker.txt" ReadMode $ \h -> do
+        hands <- (map lineToHands . lines) <$> hGetContents h
+        print $ length $ filter (uncurry (>)) hands
