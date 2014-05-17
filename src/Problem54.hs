@@ -2,6 +2,7 @@
 module Problem54 where
 
 import Control.Applicative ((<$>))
+import Control.Arrow ((***))
 import Data.Function (on)
 import Data.List (isInfixOf, groupBy, sort)
 import Data.Maybe (mapMaybe)
@@ -138,11 +139,9 @@ findHand cards
           ranks = map rank cards
 
 lineToHands :: String -> (Hand, Hand)
-lineToHands s = ( findHand $ sort player1
-                , findHand $ sort player2
-                ) where
-                        cards = (mapMaybe stringToCard . words) s
-                        (player1, player2) = splitAt 5 cards
+lineToHands s = (f *** f) $ splitAt 5 cards
+                where f = findHand . sort
+                      cards = (mapMaybe stringToCard . words) s
 
 solution54 :: IO ()
 solution54 = do
