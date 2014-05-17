@@ -4,35 +4,36 @@ module Problem54 where
 import Control.Applicative ((<$>))
 import Data.Function (on)
 import Data.List (isInfixOf, groupBy, sort)
+import Data.Maybe (catMaybes)
 import Data.Monoid ((<>))
 import System.IO (IOMode(..), openFile, hGetContents)
 
 data Suit = Clubs | Diamonds | Hearts | Spades deriving (Eq, Ord, Enum, Show, Read)
 
-charToSuit :: Char -> Suit
-charToSuit 'C' = Clubs
-charToSuit 'D' = Diamonds
-charToSuit 'H' = Hearts
-charToSuit 'S' = Spades
-charToSuit _ = error "Bad character"
+charToSuit :: Char -> Maybe Suit
+charToSuit 'C' = Just Clubs
+charToSuit 'D' = Just Diamonds
+charToSuit 'H' = Just Hearts
+charToSuit 'S' = Just Spades
+charToSuit _ = Nothing
 
 data Rank = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace deriving (Eq, Ord, Bounded, Enum, Show, Read)
 
-charToRank :: Char -> Rank
-charToRank '2' = Two
-charToRank '3' = Three
-charToRank '4' = Four
-charToRank '5' = Five
-charToRank '6' = Six
-charToRank '7' = Seven
-charToRank '8' = Eight
-charToRank '9' = Nine
-charToRank 'T' = Ten
-charToRank 'J' = Jack
-charToRank 'Q' = Queen
-charToRank 'K' = King
-charToRank 'A' = Ace
-charToRank _ = error "Bad character"
+charToRank :: Char -> Maybe Rank
+charToRank '2' = Just Two
+charToRank '3' = Just Three
+charToRank '4' = Just Four
+charToRank '5' = Just Five
+charToRank '6' = Just Six
+charToRank '7' = Just Seven
+charToRank '8' = Just Eight
+charToRank '9' = Just Nine
+charToRank 'T' = Just Ten
+charToRank 'J' = Just Jack
+charToRank 'Q' = Just Queen
+charToRank 'K' = Just King
+charToRank 'A' = Just Ace
+charToRank _ = Nothing
 
 data Card = Card { rank :: Rank
                  , suit :: Suit
@@ -41,9 +42,11 @@ data Card = Card { rank :: Rank
 instance Ord Card where
     compare = compare `on` rank
 
-stringToCard :: String -> Card
-stringToCard [r, s] = Card (charToRank r) (charToSuit s)
-stringToCard _ = error "Bad string"
+stringToCard :: String -> Maybe Card
+stringToCard [r, s] = do
+    r' <- charToRank r
+    s' <- charToSuit s
+    return $ Card r' s'
 
 data Hand = RoyalFlush
           | StraightFlush Rank
@@ -136,7 +139,7 @@ findHand cards
 lineToHands :: String -> (Hand, Hand)
 lineToHands s = ( findHand $ sort $ take 5 cards
                 , findHand $ sort $ drop 5 cards
-                ) where cards = map stringToCard $ words s
+                ) where cards = (catMaybes . map stringToCard . words) s
 
 solution54 :: IO ()
 solution54 = do
