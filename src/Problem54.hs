@@ -4,7 +4,7 @@ module Problem54 where
 import Control.Applicative ((<$>))
 import Data.Function (on)
 import Data.List (isInfixOf, groupBy, sort)
-import Data.Maybe (catMaybes)
+import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
 import System.IO (IOMode(..), openFile, hGetContents)
 
@@ -140,7 +140,7 @@ findHand cards
 lineToHands :: String -> (Hand, Hand)
 lineToHands s = ( findHand $ sort $ take 5 cards
                 , findHand $ sort $ drop 5 cards
-                ) where cards = (catMaybes . map stringToCard . words) s
+                ) where cards = (mapMaybe stringToCard . words) s
 
 solution54 :: IO ()
 solution54 = do
