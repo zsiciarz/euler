@@ -125,9 +125,7 @@ findHand cards
     | groups == [1, 1, 2, 1] = Pair midRank $ filter (/= midRank) ranks
     | groups == [1, 1, 1, 2] = Pair lastRank $ filter (/= lastRank) ranks
     | otherwise = HighCard lastRank $ filter (/= lastRank) ranks
-    where firstRank = head ranks
-          midRank = ranks !! 2
-          lastRank = last ranks
+    where [firstRank, _, midRank, _, lastRank] = ranks
           groups = map length $ groupBy ((==) `on` rank) cards
           allEqual [] = False
           allEqual (x:xs) = all (==x) xs
