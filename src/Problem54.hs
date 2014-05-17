@@ -1,7 +1,7 @@
 
 module Problem54 where
 
-import Control.Applicative ((<$>))
+import Control.Applicative ((<$>), liftA2)
 import Control.Arrow ((***))
 import Data.Function (on)
 import Data.List (isInfixOf, groupBy, sort)
@@ -44,10 +44,7 @@ instance Ord Card where
     compare = compare `on` rank
 
 stringToCard :: String -> Maybe Card
-stringToCard [r, s] = do
-    r' <- charToRank r
-    s' <- charToSuit s
-    return $ Card r' s'
+stringToCard [r, s] = liftA2 Card (charToRank r) (charToSuit s)
 stringToCard _ = Nothing
 
 data Hand = RoyalFlush
