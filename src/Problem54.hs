@@ -138,9 +138,11 @@ findHand cards
           ranks = map rank cards
 
 lineToHands :: String -> (Hand, Hand)
-lineToHands s = ( findHand $ sort $ take 5 cards
-                , findHand $ sort $ drop 5 cards
-                ) where cards = (mapMaybe stringToCard . words) s
+lineToHands s = ( findHand $ sort player1
+                , findHand $ sort player2
+                ) where
+                        cards = (mapMaybe stringToCard . words) s
+                        (player1, player2) = splitAt 5 cards
 
 solution54 :: IO ()
 solution54 = do
