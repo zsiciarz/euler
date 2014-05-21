@@ -2,6 +2,7 @@
 
 module Problem57 where
 
+import Data.Function (on)
 import Data.Ratio
 
 import Common (digits)
@@ -18,7 +19,7 @@ fracSqrt2 :: [Integer]
 fracSqrt2 = 1 : repeat 2
 
 checkDigits :: Rational -> Bool
-checkDigits r = (length $ digits n) > (length $ digits d) where
+checkDigits r = ((>) `on` length . digits) n d where
                 n = numerator r
                 d = denominator r
 
