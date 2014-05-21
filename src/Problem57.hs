@@ -24,8 +24,8 @@ checkDigits r = (length $ digits n) > (length $ digits d) where
 
 solution57 :: IO ()
 solution57 = do
-    print $ length $ [r | n <- [1..1000]
-                        , let r = convergent fracSqrt2 n
-                        , checkDigits r
-                        ]
+    print $ length [r | n <- [1..1000]
+                      , let r = convergent fracSqrt2 n
+                      , checkDigits r
+                      ]
 
