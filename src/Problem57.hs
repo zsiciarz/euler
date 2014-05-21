@@ -4,21 +4,22 @@ module Problem57 where
 
 import Data.Function (on)
 import Data.Ratio
+import qualified Data.Vector as V
 
 import Common (digits)
 
-p :: [Integer] -> Int -> Int -> Rational
+p :: V.Vector Integer -> Int -> Int -> Ratio Integer
 p a m n
-    | m == n = 1 % (a !! m)
-    | otherwise = 1 / ((a !! m) % 1 + p a (m+1) n)
+    | m == n = 1 % (a V.! m)
+    | otherwise = 1 / ((a V.! m) % 1 + p a (m+1) n)
 
-convergent :: [Integer] -> Int -> Rational
-convergent a n = head a % 1 + p a 1 n
+convergent :: V.Vector Integer -> Int -> Ratio Integer
+convergent a n = V.head a % 1 + p a 1 n
 
-fracSqrt2 :: [Integer]
-fracSqrt2 = 1 : repeat 2
+fracSqrt2 :: V.Vector Integer
+fracSqrt2 = V.cons 1 $ V.replicate 1000 2
 
-checkDigits :: Rational -> Bool
+checkDigits :: Ratio Integer -> Bool
 checkDigits r = ((>) `on` length . digits) n d where
                 n = numerator r
                 d = denominator r
