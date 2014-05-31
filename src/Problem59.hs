@@ -1,7 +1,7 @@
 
 module Problem59 where
 
-import System.IO
+import System.IO (withFile, IOMode(..), hGetContents)
 import Control.Applicative ((<$>))
 import Data.Bits (xor)
 import Data.Char (ord)
