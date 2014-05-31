@@ -12,10 +12,7 @@ readInput :: String -> [Int]
 readInput s = map read $ splitOn "," s
 
 keys :: [[Int]]
-keys = [[a, b, c] | a <- [97..122]
-                  , b <- [97..122]
-                  , c <- [97..122]
-                  ]
+keys = [[a, b, c] | a <- [97..122], b <- [97..122], c <- [97..122]]
 
 decipher :: [Int] -> [Int] -> [Int]
 decipher input key = zipWith xor input (concat $ repeat key)
