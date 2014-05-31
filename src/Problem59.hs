@@ -24,6 +24,6 @@ hasCommonWords s = "the " `isInfixOf` s && "and " `isInfixOf` s
 
 solution59 :: IO ()
 solution59 = do
-    h <- openFile "/home/zbyszek/cipher1.txt" ReadMode
+    h <- openFile "data/cipher1.txt" ReadMode
     input <- fmap readInput $ hGetContents h
     print $ sum $ head $ filter (hasCommonWords . map chr) $ map (decipher input) keys
