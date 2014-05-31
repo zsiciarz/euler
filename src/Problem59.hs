@@ -21,9 +21,8 @@ decipher :: [Int] -> [Int] -> [Int]
 decipher input key = zipWith xor input (concat $ repeat key)
 
 hasCommonWords :: [Int] -> Bool
-hasCommonWords s = w1 `isInfixOf` s && w2 `isInfixOf` s where
-    w1 = map ord "the "
-    w2 = map ord "and "
+hasCommonWords s = all (`isInfixOf` s) commonWords where
+    commonWords = map (map ord) ["the ", "and "]
 
 solution59 :: IO ()
 solution59 = do
