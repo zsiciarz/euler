@@ -9,7 +9,7 @@ import Data.List (isInfixOf)
 import Data.List.Split (splitOn)
 
 readInput :: String -> [Int]
-readInput s = map read $ splitOn "," s
+readInput = map read . splitOn ","
 
 keys :: [[Int]]
 keys = [[a, b, c] | a <- [97..122], b <- [97..122], c <- [97..122]]
