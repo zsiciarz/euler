@@ -2,6 +2,7 @@
 module Problem59 where
 
 import System.IO
+import Control.Applicative ((<$>))
 import Data.Bits (xor)
 import Data.Char (chr)
 import Data.List (isInfixOf)
@@ -25,5 +26,5 @@ hasCommonWords s = "the " `isInfixOf` s && "and " `isInfixOf` s
 solution59 :: IO ()
 solution59 = do
     withFile "data/cipher1.txt" ReadMode $ \h -> do
-        input <- fmap readInput $ hGetContents h
+        input <- readInput <$> hGetContents h
         print $ sum $ head $ filter (hasCommonWords . map chr) $ map (decipher input) keys
