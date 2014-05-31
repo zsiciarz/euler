@@ -29,4 +29,4 @@ solution59 :: IO ()
 solution59 = do
     withFile "data/cipher1.txt" ReadMode $ \h -> do
         input <- readInput <$> hGetContents h
-        print $ sum $ head $ filter hasCommonWords $ map (decipher input) keys
+        print $ (sum . head . filter hasCommonWords) $ map (decipher input) keys
