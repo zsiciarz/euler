@@ -21,16 +21,13 @@ allDifferent xs = length xs == S.size (S.fromList xs) && and ps where
 isCyclic :: Integral a => a -> a -> Bool
 isCyclic x y = x `mod` 100 == y `div` 100
 
-findMatchingNumbers :: Integral a => a -> [a] -> [a]
-findMatchingNumbers n = filter (n `isCyclic`)
-
 findSets :: Integral a => [a] -> [[a]]
 findSets figurates = concatMap permutations [[a, b, c, d, e, f] | a <- figurates
-                                                                , b <- findMatchingNumbers a figurates
-                                                                , c <- findMatchingNumbers b figurates
-                                                                , d <- findMatchingNumbers c figurates
-                                                                , e <- findMatchingNumbers d figurates
-                                                                , f <- findMatchingNumbers e figurates
+                                                                , b <- filter (a `isCyclic`) figurates
+                                                                , c <- filter (b `isCyclic`) figurates
+                                                                , d <- filter (c `isCyclic`) figurates
+                                                                , e <- filter (d `isCyclic`) figurates
+                                                                , f <- filter (e `isCyclic`) figurates
                                                                 , f `isCyclic` a
                                                                 ]
 
