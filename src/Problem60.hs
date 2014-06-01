@@ -16,20 +16,14 @@ checkPrimes a b = isPrime (concatNum a b) && isPrime (concatNum b a)
 
 concatenablePrimes :: Integral a => [a] -> [[a]]
 concatenablePrimes xs = [[a, b, c, d, e] | a <- xs
-                                         , b <- dropWhile (< a) xs
-                                         , c <- dropWhile (< b) xs
-                                         , d <- dropWhile (< c) xs
-                                         , e <- dropWhile (< d) xs
-                                         , checkPrimes a b
-                                         , checkPrimes a c
-                                         , checkPrimes a d
-                                         , checkPrimes a e
-                                         , checkPrimes b c
-                                         , checkPrimes b d
-                                         , checkPrimes b e
-                                         , checkPrimes c d
-                                         , checkPrimes c e
-                                         , checkPrimes d e
+                                         , let bs = filter (checkPrimes a) $ dropWhile (<= a) xs
+                                         , b <- bs
+                                         , let cs = filter (checkPrimes b) $ dropWhile (<= b) bs
+                                         , c <- cs
+                                         , let ds = filter (checkPrimes c) $ dropWhile (<= c) cs
+                                         , d <- ds
+                                         , let es = filter (checkPrimes d) $ dropWhile (<= d) ds
+                                         , e <- es
                                          ]
 
 solution60 :: IO ()
