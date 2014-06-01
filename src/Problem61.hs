@@ -11,9 +11,6 @@ takeFourDigits = takeWhile (< 10000) . dropWhile (< 1000)
 allFigurates :: Integral a => [[a]]
 allFigurates = map takeFourDigits [triangulars, squares, pentagonals, hexagonals, heptagonals, octagonals]
 
-allFigurates' :: Integral a => [a]
-allFigurates' = concat allFigurates
-
 allDifferent :: Integral a => [a] -> Bool
 allDifferent xs = length xs == S.size (S.fromList xs) && and ps where
     ps = zipWith elem xs allFigurates
@@ -33,4 +30,4 @@ findSets figurates = concatMap permutations [[a, b, c, d, e, f] | a <- figurates
 
 solution61 :: IO ()
 solution61 = do
-    print $ sum . head $ filter allDifferent $ findSets allFigurates'
+    print $ sum . head . filter allDifferent . findSets $ concat allFigurates
