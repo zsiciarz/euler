@@ -1,7 +1,5 @@
 module Problem60 where
 
--- possibly works, too slow
-
 import Data.Numbers.Primes (primes, isPrime)
 
 primes' :: Integral a => [a]
