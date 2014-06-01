@@ -28,4 +28,4 @@ concatenablePrimes xs = [[a, b, c, d, e] | a <- xs
 
 solution60 :: IO ()
 solution60 = do
-    print $ minimum $ map sum (concatenablePrimes primes')
+    print $ sum . head $ concatenablePrimes primes'
