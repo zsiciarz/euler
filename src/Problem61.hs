@@ -25,8 +25,7 @@ octagonals' :: Integral a => [a]
 octagonals' = takeFourDigits octagonals
 
 findMatchingNumbers :: Integral a => a -> [a] -> [a]
-findMatchingNumbers n xs = filter (\x -> x `div` 100 == lastDigits) xs where
-                           lastDigits = n `mod` 100
+findMatchingNumbers n = filter (\x -> x `div` 100 == n `mod` 100)
 
 solution61 :: IO ()
 solution61 = do
