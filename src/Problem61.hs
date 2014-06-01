@@ -18,8 +18,11 @@ allDifferent :: Integral a => [a] -> Bool
 allDifferent xs = length xs == S.size (S.fromList xs) && and ps where
     ps = zipWith elem xs allFigurates
 
+isCyclic :: Integral a => a -> a -> Bool
+isCyclic x y = x `mod` 100 == y `div` 100
+
 findMatchingNumbers :: Integral a => a -> [a] -> [a]
-findMatchingNumbers n = filter (\x -> x `div` 100 == n `mod` 100)
+findMatchingNumbers n = filter (n `isCyclic`)
 
 findSets :: Integral a => [a] -> [[a]]
 findSets figurates = concatMap permutations [[a, b, c, d, e, f] | a <- figurates
@@ -28,7 +31,7 @@ findSets figurates = concatMap permutations [[a, b, c, d, e, f] | a <- figurates
                                                                 , d <- findMatchingNumbers c figurates
                                                                 , e <- findMatchingNumbers d figurates
                                                                 , f <- findMatchingNumbers e figurates
-                                                                , f `mod` 100 == a `div` 100
+                                                                , f `isCyclic` a
                                                                 ]
 
 solution61 :: IO ()
