@@ -5,7 +5,7 @@ module Problem60 where
 import Data.Numbers.Primes (primes, isPrime)
 
 primes' :: Integral a => [a]
-primes' = take 10000 primes
+primes' = takeWhile (< 10000) primes
 
 concatNum :: Integral a => a -> a -> a
 concatNum a b = a * 10 ^ p + b where
