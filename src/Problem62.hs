@@ -1,9 +1,9 @@
 
 module Problem62 where
 
-import Control.Monad.State
+import Control.Monad.State (State, get, put, evalState)
 import Data.List (sort)
-import Data.Maybe
+import Data.Maybe (fromJust)
 import qualified Data.Map as M
 
 import Common (digits)
