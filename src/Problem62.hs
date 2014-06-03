@@ -24,4 +24,5 @@ updateCount x = do
 
 solution62 :: IO ()
 solution62 = do
-    print $ fst $ head $ filter ((== 5) . snd) $ evalState (mapM updateCount cubes) M.empty
+    let result = evalState (mapM updateCount cubes) M.empty
+    print $ fst . head . filter ((== 5) . snd) $ result
