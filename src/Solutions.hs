@@ -65,6 +65,7 @@ import Problem60 (solution60)
 import Problem61 (solution61)
 import Problem62 (solution62)
 import Problem63 (solution63)
+import Problem64 (solution64)
 import Problem65 (solution65)
 import Problem67 (solution67)
 import Problem69 (solution69)
@@ -166,6 +167,7 @@ solutions = M.fromList [(1, solution1),
                         (61, solution61),
                         (62, solution62),
                         (63, solution63),
+                        (64, solution64),
                         (65, solution65),
                         (67, solution67),
                         (69, solution69),

@@ -106,5 +106,5 @@ executable euler
                    Problem206,
                    Problem89,
                    Problem80,
-                   Problem200
-
+                   Problem200,
+                   Problem64
