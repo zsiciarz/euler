@@ -1,4 +1,3 @@
--- works, ok
 
 module Problem67 where
 
