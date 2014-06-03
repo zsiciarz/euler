@@ -4,6 +4,7 @@ module Problem67 where
 step :: [Int] -> [Int] -> [Int]
 step [] [x] = [x]
 step (x:xs) (y:yy:ys) = x + max y yy : step xs (yy:ys)
+step _ _ = []
 
 readInt :: String -> Int
 readInt = read
