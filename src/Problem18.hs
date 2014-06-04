@@ -22,6 +22,7 @@ input = [[75],
 step :: [Int] -> [Int] -> [Int]
 step [] [x] = [x]
 step (x:xs) (y:yy:ys) = x + max y yy : step xs (yy:ys)
+step _ _ = []
 
 solution18 :: IO ()
 solution18 = do
