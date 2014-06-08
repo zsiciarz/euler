@@ -2,13 +2,14 @@
 
 module Problem69 where
 
-import Data.List (maximumBy, nub)
+import Data.List (maximumBy)
 import Data.Numbers.Primes (primeFactors)
 import Data.Ord (comparing)
 import Data.Ratio
+import qualified Data.Set as S
 
 uniqueFactors :: Integer -> [Integer]
-uniqueFactors = nub . primeFactors
+uniqueFactors =  S.toList . S.fromList . primeFactors
 
 phi :: Integer -> Integer
 phi 1 = 1
