@@ -7,9 +7,12 @@ import Data.Numbers.Primes (primeFactors)
 import Data.Ord (comparing)
 import Data.Ratio
 
+uniqueFactors :: Integer -> [Integer]
+uniqueFactors = nub . primeFactors
+
 phi :: Integer -> Integer
 phi 1 = 1
-phi n = numerator $ (n % 1) * (product $ map (\p -> (1 - 1 % p)) $ nub $ primeFactors n)
+phi n = numerator $ (n % 1) * (product $ map (\p -> (1 - 1 % p)) $ uniqueFactors n)
 
 solution69 :: IO ()
 solution69 = do
