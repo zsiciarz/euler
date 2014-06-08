@@ -1,7 +1,7 @@
 
 module Problem70 where
 
-import Data.List (minimumBy, sort)
+import Data.List (minimumBy, (\\))
 import Data.Numbers.Primes (primeFactors)
 import Data.Ord (comparing)
 import Data.Ratio
@@ -21,5 +21,5 @@ solution70 = do
     print $ fst $ minimumBy (comparing snd)
         [ (n, fromIntegral n / fromIntegral p) | n <- [2..10000000]
                                                , let p = phi n
-                                               , sort (digits n) == sort (digits p)
+                                               , null $ digits n \\ digits p
                                                ]
