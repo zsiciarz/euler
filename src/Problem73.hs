@@ -1,18 +1,17 @@
--- brute force, takes few seconds
 
 module Problem73 where
 
 import Data.Ratio
-import qualified Data.Set as S
 
-fractions :: [Rational]
-fractions = [frac | d <- [1..12000]
-                  , n <- [1..(d-1)]
-                  , let frac = n % d
-                  , frac > 1 % 3
-                  , frac < 1 % 2
-                  ]
+mediant :: Rational -> Rational -> Rational
+mediant x y = (numerator x + numerator y) % (denominator x + denominator y)
+
+numFractions :: Rational -> Rational -> Integer -> Integer
+numFractions from to n
+    | denominator m > n = 0
+    | otherwise = 1 + (numFractions m to n) + (numFractions from m n)
+    where m = mediant from to
 
 solution73 :: IO ()
 solution73 = do
-    print $ S.size $ S.fromList fractions
+    print $ numFractions (1 % 3) (1 % 2) 12000
