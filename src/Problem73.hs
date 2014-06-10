@@ -9,7 +9,7 @@ mediant x y = (numerator x + numerator y) % (denominator x + denominator y)
 numFractions :: Rational -> Rational -> Integer -> Integer
 numFractions from to n
     | denominator m > n = 0
-    | otherwise = 1 + (numFractions m to n) + (numFractions from m n)
+    | otherwise = 1 + numFractions m to n + numFractions from m n
     where m = mediant from to
 
 solution73 :: IO ()
