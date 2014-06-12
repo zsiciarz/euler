@@ -14,8 +14,8 @@ loopElements = [1, 2, 145, 169, 871, 872, 1454, 40585, 45361, 45362, 363601]
 
 chainLength :: Int -> Int
 chainLength n = length chain + x where
-    (chain, rest) = break (`elem` loopElements) $ facChain n
-    x = case head rest of
+    (chain, r:_) = break (`elem` loopElements) $ facChain n
+    x = case r of
             169 -> 3
             871 -> 2
             872 -> 2
