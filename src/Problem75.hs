@@ -21,4 +21,4 @@ lengths =  [l | m <- [2..mlimit]
 
 solution75 :: IO ()
 solution75 = do
-    print $ length $ filter (1==) $ map length $ group $ sort lengths
+    print $ length . filter (1==) . map length . group . sort $ lengths
