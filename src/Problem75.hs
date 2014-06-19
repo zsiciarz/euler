@@ -3,10 +3,6 @@ module Problem75 where
 
 import Data.List (group, sort)
 
-type Sides = (Int, Int, Int)
-sides :: [Sides]
-sides = [(a, b, c) | c <- [1..], b <- [1..c], a <- [b..c], c^2 == a^2 + b^2]
-
 maxLength :: Int
 maxLength = 1500000
 
