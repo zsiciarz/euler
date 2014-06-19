@@ -1,11 +1,11 @@
 
 module Problem11 where
 
-import Control.Arrow
-import Data.Array
+import Control.Arrow (first, second, (***))
+import qualified Data.Array as A
 
-grid :: Array (Int, Int) Int
-grid = listArray ((1, 1), (20, 20)) $ map read . words $ concat [
+grid :: A.Array (Int, Int) Int
+grid = A.listArray ((1, 1), (20, 20)) $ map read . words $ concat [
     "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 ",
     "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 ",
     "81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65 ",
@@ -31,15 +31,15 @@ grid = listArray ((1, 1), (20, 20)) $ map read . words $ concat [
 senses :: [(Int, Int) -> (Int, Int)]
 senses = [first (+1), (+1) *** (+1), second (+1), (+1) *** (\n -> n - 1)]
 
-inArray :: Ix i => Array i Int -> i -> Bool
-inArray a = inRange (bounds a)
+inArray :: A.Ix i => A.Array i Int -> i -> Bool
+inArray a = A.inRange (A.bounds a)
 
-prods :: Array (Int, Int) Int -> [Int]
-prods a = [product xs | i <- range $ bounds a,
+prods :: A.Array (Int, Int) Int -> [Int]
+prods a = [product xs | i <- A.range $ A.bounds a,
                         s <- senses,
                         let is = take 4 $ iterate s i,
                         all (inArray a) is,
-                        let xs = map (a!) is]
+                        let xs = map (a A.!) is]
 
 solution11 :: IO ()
 solution11 = do
