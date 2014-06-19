@@ -28,8 +28,10 @@ grid = listArray ((1, 1), (20, 20)) $ map read . words $ concat [
     "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48 "
     ]
 
+senses :: [(Int, Int) -> (Int, Int)]
 senses = [(+1) *** id,(+1) *** (+1), id *** (+1), (+1) *** (\n -> n - 1)]
 
+inArray :: Ix i => Array i Int -> i -> Bool
 inArray a i = inRange (bounds a) i
 
 prods :: Array (Int, Int) Int -> [Int]
