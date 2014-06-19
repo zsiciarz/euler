@@ -43,4 +43,4 @@ prods a = [product xs | i <- range $ bounds a,
 
 solution11 :: IO ()
 solution11 = do
-    print $ maximum $ prods $ grid
+    print $ maximum $ prods grid
