@@ -16,4 +16,4 @@ intSqrt n = go (5 * n) 5 where
 
 solution80 :: IO ()
 solution80 = do
-    print $ sum $ map (sum . digits . intSqrt) [i | i <- [1..100], not $ isSquare i]
+    print $ sum . map (sum . digits . intSqrt) . filter (not . isSquare) $ [1..100]
