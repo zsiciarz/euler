@@ -1,7 +1,6 @@
 
 module Problem75 where
 
-import Data.Array
 import Data.List (group, sort)
 
 type Sides = (Int, Int, Int)
