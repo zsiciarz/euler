@@ -32,7 +32,7 @@ senses :: [(Int, Int) -> (Int, Int)]
 senses = [(+1) *** id,(+1) *** (+1), id *** (+1), (+1) *** (\n -> n - 1)]
 
 inArray :: Ix i => Array i Int -> i -> Bool
-inArray a i = inRange (bounds a) i
+inArray a = inRange (bounds a)
 
 prods :: Array (Int, Int) Int -> [Int]
 prods a = [product xs | i <- range $ bounds a,
