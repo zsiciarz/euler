@@ -5,7 +5,7 @@ module Problem78 where
 ways :: [Int] -> [Int]
 ways [] = 1 : repeat 0
 ways (c:cs) = n where
-                n = zipWith (+) (ways cs) (replicate c 0 ++ n)
+    n = zipWith (+) (ways cs) (replicate c 0 ++ n)
 
 solution78 :: IO ()
 solution78 = do
