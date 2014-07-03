@@ -1,21 +1,22 @@
+{-# LANGUAGE OverloadedStrings #-}
 
 module Problem89 where
 
-import Data.List (intercalate)
-import Data.List.Split (splitOn)
-import System.IO (IOMode(..), withFile, hGetContents)
+import qualified Data.Text as T
+import System.IO (IOMode(..), withFile)
+import Data.Text.IO (hGetContents)
 
-replace :: String -> String -> String -> String
-replace search replacement = intercalate replacement . splitOn search
+replace :: T.Text -> T.Text -> T.Text -> T.Text
+replace search replacement = T.intercalate replacement . T.splitOn search
 
 solution89 :: IO ()
 solution89 = do
     withFile "data/roman.txt" ReadMode $ \h -> do
         contents <- hGetContents h
-        let newLength = length $ replace "IIII" "IV"
+        let newLength = T.length $ replace "IIII" "IV"
                             $ replace "VIIII" "IX"
                             $ replace "XXXX" "XL"
                             $ replace "LXXXX" "XC"
                             $ replace "CCCC" "CD"
                             $ replace "DCCCC" "CM" contents
-        print $ length contents - newLength
+        print $ T.length contents - newLength
