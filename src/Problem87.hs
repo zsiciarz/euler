@@ -1,7 +1,7 @@
 
 module Problem87 where
 
-import qualified Data.Set as S
+import qualified Data.IntSet as S
 import Data.Numbers.Primes
 
 limit :: Int
