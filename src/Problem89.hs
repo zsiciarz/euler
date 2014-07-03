@@ -9,7 +9,7 @@ replace search replacement source = subRegex (mkRegex search) source replacement
 
 solution89 :: IO ()
 solution89 = do
-    h <- openFile "/home/zbyszek/roman.txt" ReadMode
+    h <- openFile "data/roman.txt" ReadMode
     contents <- hGetContents h
     let newLength = length $ replace "IIII" "IV"
                            $ replace "VIIII" "IX"
