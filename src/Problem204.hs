@@ -2,6 +2,7 @@
 
 module Problem204 where
 
+primes' :: [Int]
 import Data.Numbers.Primes (primeFactors, primes)
 
 isGeneralisedHamming :: Int -> Int -> Bool
