@@ -4,13 +4,13 @@ module Problem87 where
 import qualified Data.Set as S
 import Data.Numbers.Primes
 
-limit :: Integer
+limit :: Int
 limit = 50000000
 
-primePowers :: Integer -> [Integer]
+primePowers :: Int -> [Int]
 primePowers power = takeWhile (<limit) $ map (^power) primes
 
-sortAndUnique :: [Integer] -> [Integer]
+sortAndUnique :: [Int] -> [Int]
 sortAndUnique = S.toAscList . S.fromList
 
 solution87 :: IO ()
