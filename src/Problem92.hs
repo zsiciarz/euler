@@ -2,15 +2,12 @@
 
 module Problem92 where
 
-squareDigits :: Int -> Int
-squareDigits 0 = 0
-squareDigits x = m^2 + squareDigits d where
-                (d, m) = x `quotRem` 10
+import Common (digits)
 
 chain :: Int -> Int
 chain 1 = 1
 chain 89 = 89
-chain n = chain $ squareDigits n
+chain n = chain . sum . map (^2) . digits $ n
 
 solution92 :: IO ()
 solution92 = do
