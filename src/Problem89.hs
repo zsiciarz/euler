@@ -1,11 +1,12 @@
 
 module Problem89 where
 
+import Data.List (intercalate)
+import Data.List.Split (splitOn)
 import System.IO (IOMode(..), withFile, hGetContents)
-import Text.Regex
 
 replace :: String -> String -> String -> String
-replace search replacement source = subRegex (mkRegex search) source replacement
+replace search replacement = intercalate replacement . splitOn search
 
 solution89 :: IO ()
 solution89 = do
