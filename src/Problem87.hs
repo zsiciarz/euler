@@ -1,7 +1,7 @@
 
 module Problem87 where
 
-import Data.List (group, sort)
+import qualified Data.Set as S
 import Data.Numbers.Primes
 
 limit :: Integer
@@ -11,7 +11,7 @@ primePowers :: Integer -> [Integer]
 primePowers power = takeWhile (<limit) $ map (^power) primes
 
 sortAndUnique :: [Integer] -> [Integer]
-sortAndUnique = map head . group . sort
+sortAndUnique = S.toAscList . S.fromList
 
 solution87 :: IO ()
 solution87 = do
