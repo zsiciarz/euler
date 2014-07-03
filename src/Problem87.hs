@@ -15,7 +15,5 @@ sortAndUnique = S.toAscList . S.fromList
 
 solution87 :: IO ()
 solution87 = do
-    print $ length $ takeWhile (<limit) $ sortAndUnique [a + b + c | a <- primePowers 2
-                                                                   , b <- primePowers 3
-                                                                   , c <- primePowers 4
-                                                                   ]
+    let powerSums = [a + b + c | a <- primePowers 2, b <- primePowers 3, c <- primePowers 4]
+    print . length . takeWhile (<limit) . sortAndUnique $ powerSums
