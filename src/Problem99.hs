@@ -15,7 +15,7 @@ processLine s = e' * logBase 10.0 b' where
 
 solution99 :: IO ()
 solution99 = do
-    h <- openFile "D:\\base_exp.txt" ReadMode
+    h <- openFile "data/base_exp.txt" ReadMode
     contents <- hGetContents h
     let numbers = zip [1..] $ map processLine $ lines contents
     let m = maximumBy (comparing snd) numbers
