@@ -9,8 +9,8 @@ import Data.Ord (comparing)
 
 processLine :: String -> Float
 processLine s = e' * logBase 10.0 b' where
-                b' = read b::Float
-                e' = read e::Float
+                b' = read b
+                e' = read e
                 b:e:_ = splitOn "," s
 
 solution99 :: IO ()
