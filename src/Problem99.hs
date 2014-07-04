@@ -4,14 +4,13 @@ module Problem99 where
 
 import System.IO (withFile, IOMode(..), hGetContents)
 import Data.List (maximumBy)
-import Data.List.Split (splitOn)
 import Data.Ord (comparing)
 
 processLine :: String -> Float
 processLine s = e' * logBase 10.0 b' where
                 b' = read b
                 e' = read e
-                b:e:_ = splitOn "," s
+                (b, _:e) = break (==',') s
 
 solution99 :: IO ()
 solution99 = do
