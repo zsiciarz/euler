@@ -36,4 +36,4 @@ solution102 :: IO ()
 solution102 = do
     withFile "data/triangles.txt" ReadMode $ \h -> do
         triangles <- (map read . lines) <$> hGetContents h
-        print $ length $ filter (\t -> triangleContains t (Point 0 0)) triangles
+        print . length . filter (\t -> triangleContains t (Point 0 0)) $ triangles
