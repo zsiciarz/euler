@@ -25,8 +25,8 @@ area triangle = sqrt(s * (s - a) * (s - b) * (s - c)) where
                 [a, b, c] = sides triangle
                 s = (a + b + c) / 2.0
 
-triangleContains :: Triangle -> Point -> Bool
-triangleContains triangle@(Triangle p1 p2 p3) p = 1e-6 > abs (a - a1 - a2 - a3) where
+triangleContains :: Point -> Triangle -> Bool
+triangleContains p triangle@(Triangle p1 p2 p3) = 1e-6 > abs (a - a1 - a2 - a3) where
                                                   a = area triangle
                                                   a1 = area (Triangle p p2 p3)
                                                   a2 = area (Triangle p1 p p3)
@@ -36,4 +36,4 @@ solution102 :: IO ()
 solution102 = do
     withFile "data/triangles.txt" ReadMode $ \h -> do
         triangles <- (map read . lines) <$> hGetContents h
-        print . length . filter (\t -> triangleContains t (Point 0 0)) $ triangles
+        print . length . filter (triangleContains (Point 0 0)) $ triangles
