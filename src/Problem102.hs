@@ -8,6 +8,9 @@ import Data.List.Split (splitOn)
 
 data Point = Point Double Double deriving Show
 
+origin :: Point
+origin = Point 0 0
+
 data Triangle = Triangle Point Point Point deriving Show
 
 instance Read Triangle where
@@ -36,4 +39,4 @@ solution102 :: IO ()
 solution102 = do
     withFile "data/triangles.txt" ReadMode $ \h -> do
         triangles <- (map read . lines) <$> hGetContents h
-        print . length . filter (triangleContains (Point 0 0)) $ triangles
+        print . length . filter (triangleContains origin) $ triangles
