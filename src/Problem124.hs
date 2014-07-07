@@ -15,10 +15,10 @@ rad' n = rads !! (n-1)
 
 compareByRad :: Int -> Int -> Ordering
 compareByRad x y
-               | rx == ry = compare x y
-               | otherwise = compare rx ry where
-                   rx = rad' x
-                   ry = rad' y
+    | rx == ry = compare x y
+    | otherwise = compare rx ry where
+        rx = rad' x
+        ry = rad' y
 
 e :: Int -> Int
 e n =  sortBy compareByRad [1..100000] !! (n-1)
