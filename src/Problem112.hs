@@ -23,4 +23,4 @@ bouncyProportion x = fromIntegral (numBouncies V.! x) / fromIntegral x
 
 solution112 :: IO ()
 solution112 = do
-    print $ head $ dropWhile (\x -> bouncyProportion x < 0.99) [21780..]
+    print . head . dropWhile (\x -> bouncyProportion x < 0.99) $ [21780..]
