@@ -5,21 +5,19 @@ import Data.List (group, sortBy)
 import Data.Numbers.Primes (primeFactors)
 import qualified Data.Vector.Unboxed as V
 
-rad :: Int -> Int
-rad n = product $ (map head . group) $ primeFactors n
-
 rads :: V.Vector Int
-rads = V.map rad $ V.enumFromTo 1 100000
+rads = V.map rad' $ V.enumFromTo 1 100000 where
+    rad' n = product $ (map head . group) $ primeFactors n
 
-rad' :: Int -> Int
-rad' n = rads V.! (n-1)
+rad :: Int -> Int
+rad n = rads V.! (n-1)
 
 compareByRad :: Int -> Int -> Ordering
 compareByRad x y
     | rx == ry = compare x y
     | otherwise = compare rx ry where
-        rx = rad' x
-        ry = rad' y
+        rx = rad x
+        ry = rad y
 
 e :: Int -> Int
 e n =  sortBy compareByRad [1..100000] !! (n-1)
