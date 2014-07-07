@@ -3,15 +3,16 @@ module Problem124 where
 
 import Data.List (group, sortBy)
 import Data.Numbers.Primes (primeFactors)
+import qualified Data.Vector.Unboxed as V
 
 rad :: Int -> Int
 rad n = product $ (map head . group) $ primeFactors n
 
-rads :: [Int]
-rads = map rad [1..100000]
+rads :: V.Vector Int
+rads = V.map rad $ V.enumFromTo 1 100000
 
 rad' :: Int -> Int
-rad' n = rads !! (n-1)
+rad' n = rads V.! (n-1)
 
 compareByRad :: Int -> Int -> Ordering
 compareByRad x y
