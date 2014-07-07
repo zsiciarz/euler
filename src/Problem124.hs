@@ -2,7 +2,7 @@
 module Problem124 where
 
 import Data.List (group, sortBy)
-import Data.Numbers.Primes
+import Data.Numbers.Primes (primeFactors)
 
 rad :: Int -> Int
 rad n = product $ (map head . group) $ primeFactors n
