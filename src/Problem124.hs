@@ -8,7 +8,7 @@ import qualified Data.Vector.Unboxed as V
 
 rads :: V.Vector Int
 rads = V.map rad' $ V.enumFromTo 1 100000 where
-    rad' = product . (S.toList . S.fromList) . primeFactors
+    rad' = S.foldr' (*) 1 . S.fromList . primeFactors
 
 rad :: Int -> Int
 rad n = rads V.! (n-1)
