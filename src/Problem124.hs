@@ -1,13 +1,14 @@
 
 module Problem124 where
 
-import Data.List (group, sortBy)
+import Data.List (sortBy)
 import Data.Numbers.Primes (primeFactors)
+import qualified Data.IntSet as S
 import qualified Data.Vector.Unboxed as V
 
 rads :: V.Vector Int
 rads = V.map rad' $ V.enumFromTo 1 100000 where
-    rad' n = product $ (map head . group) $ primeFactors n
+    rad' = product . (S.toList . S.fromList) . primeFactors
 
 rad :: Int -> Int
 rad n = rads V.! (n-1)
