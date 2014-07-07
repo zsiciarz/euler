@@ -1,4 +1,3 @@
--- works, 1.5 second
 
 module Problem112 where
 
