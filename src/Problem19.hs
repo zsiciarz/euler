@@ -2,7 +2,7 @@
 module Problem19 where
 
 isLeapYear :: Int -> Bool
-isLeapYear year = mod year 4 == 0 && (mod year 100 /= 0 || mod year 400 == 0)
+isLeapYear year = year `mod` 4 == 0 && (year `mod` 100 /= 0 || year `mod` 400 == 0)
 
 daysInFebruary :: Int -> Int
 daysInFebruary year = if isLeapYear year then 29 else 28
