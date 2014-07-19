@@ -1,19 +1,21 @@
+{-# LANGUAGE OverloadedStrings #-}
 
 module Problem22 where
 
+import qualified Data.Text as T
 import Data.Char (ord)
-import System.IO (IOMode(..), withFile, hGetContents)
+import System.IO (IOMode(..), withFile)
 import Data.List (sort)
-import Data.List.Split (splitOn)
+import Data.Text.IO (hGetContents)
 
 charValue :: Char -> Int
 charValue c = ord c - 64 -- (ord 'A') + 1
 
-nameValue :: String -> Int
-nameValue = sum . map charValue . filter (`elem` ['A'..'Z'])
+nameValue :: T.Text -> Int
+nameValue = T.foldl' (\acc c -> acc + charValue c) 0 . T.filter (`elem` ['A'..'Z'])
 
-findSolution :: String -> Int
-findSolution s = sum [i * nameValue name | (i, name) <- zip [1..] $ sort (splitOn "," s)]
+findSolution :: T.Text -> Int
+findSolution s = sum [i * nameValue name | (i, name) <- zip [1..] $ sort (T.splitOn "," s)]
 
 solution22 :: IO ()
 solution22 = do
