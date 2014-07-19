@@ -2,7 +2,7 @@
 module Problem22 where
 
 import Data.Char (ord)
-import System.IO
+import System.IO (IOMode(..), withFile, hGetContents)
 import Data.List (sort)
 import Data.List.Split (splitOn)
 
@@ -17,6 +17,6 @@ findSolution s = sum [ i * (nameValue name) | (i, name) <- zip [1..] $ sort (spl
 
 solution22 :: IO ()
 solution22 = do
-    h <- openFile "data/names.txt" ReadMode
-    contents <- hGetContents h
-    print $ findSolution contents
+    withFile "data/names.txt" ReadMode $ \h -> do
+        contents <- hGetContents h
+        print $ findSolution contents
