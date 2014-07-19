@@ -1,7 +1,7 @@
 
 module Problem10 where
 
-import Data.Numbers.Primes
+import Data.Numbers.Primes (primes)
 
 solution10 :: IO ()
 solution10 = do
