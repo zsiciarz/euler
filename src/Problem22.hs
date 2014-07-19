@@ -17,6 +17,6 @@ findSolution s = sum [ i * (nameValue name) | (i, name) <- zip [1..] $ sort (spl
 
 solution22 :: IO ()
 solution22 = do
-    h <- openFile "D:\\names.txt" ReadMode
+    h <- openFile "data/names.txt" ReadMode
     contents <- hGetContents h
     print $ findSolution contents
