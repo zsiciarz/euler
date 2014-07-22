@@ -19,5 +19,4 @@ f n = head [x | x <- [n, 2*n..], correctDigits x]
 solution303 :: IO ()
 solution303 = do
     let results = map (\n -> f n `div` n) [1..10000]
-    -- print $ results
     print $ sum results
