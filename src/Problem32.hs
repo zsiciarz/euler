@@ -2,7 +2,7 @@
 module Problem32 where
 
 import Data.List (permutations)
-import qualified Data.Set as S
+import qualified Data.IntSet as S
 import Common (undigits)
 
 undigits' :: [Int] -> Int
