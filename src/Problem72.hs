@@ -1,4 +1,3 @@
--- using Farey sequence length
 
 module Problem72 where
 
