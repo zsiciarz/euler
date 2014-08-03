@@ -1,7 +1,8 @@
 
 module Problem32 where
 
-import Data.List (nub, permutations)
+import Data.List (permutations)
+import qualified Data.Set as S
 import Common (undigits)
 
 undigits' :: [Int] -> Int
@@ -18,4 +19,4 @@ products = [undigits' r | xs <- permutations [1..9]
 
 solution32 :: IO ()
 solution32 = do
-    print $ sum $ nub products
+    print $ S.foldr' (+) 0 $ S.fromList products
