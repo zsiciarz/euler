@@ -1,6 +1,5 @@
 
 module Problem32 where
--- works, 6 seconds
 
 import Data.List (nub, permutations)
 import Common (undigits)
