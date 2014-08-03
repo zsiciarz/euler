@@ -13,7 +13,7 @@ products = [ undigits' r | xs <- permutations [1..9]
                , j <- [1..8-i]
                , let (p, rest) = splitAt i xs
                , let (q, r) = splitAt j rest
-               , (undigits' p) * (undigits' q) == (undigits' r)
+               , undigits' p * undigits' q == undigits' r
                ]
 
 solution32 :: IO ()
