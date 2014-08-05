@@ -3,7 +3,7 @@ module Problem34 where
 
 import Common (digits, factorial)
 
-facSum :: Integer -> Integer
+facSum :: Int -> Int
 facSum x = sum $ map factorial (digits $ fromIntegral x)
 
 solution34 :: IO ()
