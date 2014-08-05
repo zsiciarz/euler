@@ -4,7 +4,7 @@ module Problem34 where
 import Common (digits, factorial)
 
 facSum :: Int -> Int
-facSum x = sum $ map factorial (digits $ fromIntegral x)
+facSum = sum . map factorial . digits
 
 solution34 :: IO ()
 solution34 = do
