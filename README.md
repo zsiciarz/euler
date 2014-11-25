@@ -1,6 +1,8 @@
 euler
 =====
 
+[![Build Status](https://travis-ci.org/zsiciarz/euler.svg?branch=master)](https://travis-ci.org/zsiciarz/euler)
+
 My solutions for Project Euler in Haskell.
 
 Installation
