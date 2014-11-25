@@ -4,7 +4,7 @@ import Options.Applicative
 import Solutions (SolutionOptions (..), runSolution)
 
 solutionOptions :: Parser SolutionOptions
-solutionOptions = SolutionOptions <$> option (long "problem" <> metavar "NUM")
+solutionOptions = SolutionOptions <$> option auto (long "problem" <> metavar "NUM")
 
 main :: IO ()
 main = execParser opts >>= runSolution
