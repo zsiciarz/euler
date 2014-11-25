@@ -106,7 +106,7 @@ executable euler
                    Problem64
 
 Test-Suite test-euler
-  hs-source-dirs:  src
+  hs-source-dirs:  tests
   type: exitcode-stdio-1.0
   main-is: Test.hs
   build-depends:
