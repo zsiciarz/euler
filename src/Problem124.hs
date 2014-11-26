@@ -21,6 +21,6 @@ compareByRad x y = (compare `on` rad) x y <> x `compare` y
 e :: Int -> Int
 e n =  sortBy compareByRad [1..100000] !! (n-1)
 
-solution124 :: IO ()
+solution124 :: IO Integer
 solution124 = do
-    print $ e 10000
+    return . fromIntegral . e $ 10000

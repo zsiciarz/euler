@@ -28,6 +28,6 @@ findSets figurates = concatMap permutations [[a, b, c, d, e, f] | a <- figurates
                                                                 , f `isCyclic` a
                                                                 ]
 
-solution61 :: IO ()
+solution61 :: IO Integer
 solution61 = do
-    print $ sum . head . filter allDifferent . findSets $ concat allFigurates
+    return $ sum . head . filter allDifferent . findSets $ concat allFigurates

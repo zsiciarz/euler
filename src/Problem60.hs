@@ -24,6 +24,6 @@ concatenablePrimes xs = [[a, b, c, d, e] | a <- xs
                                          , e <- es
                                          ]
 
-solution60 :: IO ()
+solution60 :: IO Integer
 solution60 = do
-    print $ sum . head $ concatenablePrimes primes'
+    return $ sum . head $ concatenablePrimes primes'

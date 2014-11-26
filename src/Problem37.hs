@@ -9,6 +9,6 @@ parts :: Int -> [Int]
 parts num = map undigits $ (tail $ inits s) ++ (init $ tails s) where
     s = digits num
 
-solution37 :: IO ()
+solution37 :: IO Integer
 solution37 = do
-    print $ sum $ take 11 [x | x <- primes, x > 7, all isPrime $ parts x]
+    return $ fromIntegral $ sum $ take 11 [x | x <- primes, x > 7, all isPrime $ parts x]

@@ -16,9 +16,9 @@ phi :: Integer -> Integer
 phi 1 = 1
 phi n = numerator $ (n % 1) * product (map (\p -> 1 - 1 % p) $ uniqueFactors n)
 
-solution70 :: IO ()
+solution70 :: IO Integer
 solution70 = do
-    print $ fst $ minimumBy (comparing snd)
+    return $ fst $ minimumBy (comparing snd)
         [(n, fromIntegral n / fromIntegral p) | n <- [2..10000000]
                                               , let p = phi n
                                               , null $ digits n \\ digits p

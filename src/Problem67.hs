@@ -9,8 +9,8 @@ step _ _ = []
 readInt :: String -> Int
 readInt = read
 
-solution67 :: IO ()
+solution67 :: IO Integer
 solution67 = do
     contents <- readFile "data/triangle.txt"
     let input = map (map readInt . words) $ lines contents
-    print $ head $ foldr1 step input
+    return $ fromIntegral $ head $ foldr1 step input

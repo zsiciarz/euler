@@ -12,7 +12,7 @@ checkPermutations :: [Int] -> Bool
 checkPermutations xs = all (== head xs') (tail xs') where
     xs' = map (sort . digits) xs
 
-solution49 :: IO ()
+solution49 :: IO Integer
 solution49 = do
     print $ [ (p, ps, pss) | p <- primes'
                            , s <- [1..9000]
@@ -23,3 +23,4 @@ solution49 = do
                            , pss < 10000
                            , checkPermutations [p, ps, pss]
                            ]
+    return 1

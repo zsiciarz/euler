@@ -1,6 +1,8 @@
 
 module Problem64 where
 
+import Data.List (genericLength)
+
 findExpansionPeriod :: Int -> [Int]
 findExpansionPeriod s = findExpansion' 0 1 a0 where
     a0 = floor . sqrt . fromIntegral $ s
@@ -12,6 +14,6 @@ findExpansionPeriod s = findExpansion' 0 1 a0 where
             d' = (s - m'^2) `div` d
             a' = (a0 + m') `div` d'
 
-solution64 :: IO ()
+solution64 :: IO Integer
 solution64 = do
-    print $ length $ filter (odd . length . findExpansionPeriod) [2..10000]
+    return $ genericLength $ filter (odd . length . findExpansionPeriod) [2..10000]

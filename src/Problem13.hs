@@ -1,9 +1,9 @@
 
 module Problem13 where
 
-solution13 :: IO ()
+solution13 :: IO Integer
 solution13 = do
-    putStrLn . take 10 . show . sum $ l
+    return . read . take 10 . show . sum $ l
           where l = [37107287533902102798797998220837590246510135740250,
                      46376937677490009712648124896970078050417018260538,
                      74324986199524741059474233309513058123726617309629,

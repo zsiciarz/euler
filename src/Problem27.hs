@@ -14,7 +14,7 @@ primesByFormula a b = takeWhile isPrime [formula a b n | n <- [0..] ]
 pairs :: [((Int, Int), Int)]
 pairs = [ ((a, b), length $ primesByFormula a b) | a <- [-999..999], b <- [-999..999] ]
 
-solution27 :: IO ()
+solution27 :: IO Integer
 solution27 = do
-    print $ fst p * snd p
+    return $ fromIntegral $ fst p * snd p
         where p = fst $ maximumBy (comparing snd) pairs

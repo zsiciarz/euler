@@ -11,6 +11,6 @@ sameDigits m n = sort (digits m) == sort (digits n)
 sameDigits' :: Integer -> Integer -> Bool
 sameDigits' n x = sameDigits x (n*x)
 
-solution52 :: IO ()
+solution52 :: IO Integer
 solution52 = do
-    print $ head [x | x <- [1..], and $ liftA2 sameDigits' [2..6] [x]]
+    return $ head [x | x <- [1..], and $ liftA2 sameDigits' [2..6] [x]]

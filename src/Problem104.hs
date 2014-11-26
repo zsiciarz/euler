@@ -10,9 +10,9 @@ isPandigital s = sort s == "123456789"
 fibs' :: [Integer]
 fibs' = drop 2749 fibs
 
-solution104 :: IO ()
+solution104 :: IO Integer
 solution104 = do
-    print $ head [n | (x, n) <- zip fibs' [2750..]
+    return $ head [n | (x, n) <- zip fibs' [2750..]
                     , let digits = show x
                     , isPandigital $ take 9 digits
                     , isPandigital $ take 9 $ reverse digits

@@ -24,6 +24,6 @@ step [] [x] = [x]
 step (x:xs) (y:yy:ys) = x + max y yy : step xs (yy:ys)
 step _ _ = []
 
-solution18 :: IO ()
+solution18 :: IO Integer
 solution18 = do
-    print $ head $ foldr1 step input
+    return $ fromIntegral $ head $ foldr1 step input

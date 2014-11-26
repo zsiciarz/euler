@@ -11,6 +11,6 @@ palindromic2 :: Int -> Bool
 palindromic2 x = ds == reverse ds where
     ds = digitsBase 2 x
 
-solution36 :: IO ()
+solution36 :: IO Integer
 solution36 = do
-    print $ sum [ x | x <- [0..1000000], odd x && palindromic10 x && palindromic2 x]
+    return $ fromIntegral $ sum [ x | x <- [0..1000000], odd x && palindromic10 x && palindromic2 x]

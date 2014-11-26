@@ -15,6 +15,6 @@ isPythagorean (a, b, c) = (a^2 + b^2 == c^2) || (a^2 + c^2 == b^2) || (c^2 + b^2
 prodSides :: Sides -> Int
 prodSides (a, b, c) = a * b * c
 
-solution9 :: IO ()
+solution9 :: IO Integer
 solution9 = do
-    print $ prodSides $ head $ filter isPythagorean sides
+    return $ fromIntegral $ prodSides $ head $ filter isPythagorean sides

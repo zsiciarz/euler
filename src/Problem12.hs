@@ -5,6 +5,6 @@ import Figurate (triangulars)
 
 import Common (numDivisors)
 
-solution12 :: IO ()
+solution12 :: IO Integer
 solution12 = do
-    print $ head $ dropWhile (\x -> numDivisors x < 500) triangulars
+    return $ head $ dropWhile (\x -> numDivisors x < 500) triangulars

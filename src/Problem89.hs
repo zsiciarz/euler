@@ -9,7 +9,7 @@ import Data.Text.IO (hGetContents)
 replace :: T.Text -> T.Text -> T.Text -> T.Text
 replace search replacement = T.intercalate replacement . T.splitOn search
 
-solution89 :: IO ()
+solution89 :: IO Integer
 solution89 = do
     withFile "data/roman.txt" ReadMode $ \h -> do
         contents <- hGetContents h
@@ -19,4 +19,4 @@ solution89 = do
                             $ replace "LXXXX" "XC"
                             $ replace "CCCC" "CD"
                             $ replace "DCCCC" "CM" contents
-        print $ T.length contents - newLength
+        return $ fromIntegral $ T.length contents - newLength

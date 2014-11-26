@@ -10,9 +10,9 @@ isNaturalSquare x = fraction == 0 where
 rests :: Int -> [Int]
 rests x = [(x - p) `div` 2 | p <- takeWhile (<x) primes]
 
-solution46 :: IO ()
+solution46 :: IO Integer
 solution46 = do
-    print $ head [x | x <- [33, 35..]
+    return $ fromIntegral $ head [x | x <- [33, 35..]
                     , not $ isPrime x
                     , all (not . isNaturalSquare) $ rests x
                     ]

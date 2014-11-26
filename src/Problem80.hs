@@ -14,6 +14,6 @@ intSqrt n = go (5 * n) 5 where
         | otherwise = go (a * 100) ((b `div` 10) * 100 + 5)
         where limit = 10^101
 
-solution80 :: IO ()
+solution80 :: IO Integer
 solution80 = do
-    print $ sum . map (sum . digits . intSqrt) . filter (not . isSquare) $ [1..100]
+    return $ sum . map (sum . digits . intSqrt) . filter (not . isSquare) $ [1..100]

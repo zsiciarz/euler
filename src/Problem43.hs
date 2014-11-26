@@ -7,9 +7,9 @@ import Common (undigits)
 pandigitalDigits :: [[Integer]]
 pandigitalDigits = filter ((/= 0) . head) $ permutations [0..9]
 
-solution43 :: IO ()
+solution43 :: IO Integer
 solution43 = do
-    print $ sum [undigits $ reverse ds | ds@(_:d2:d3:d4:d5:d6:d7:d8:d9:d10:_) <- pandigitalDigits
+    return $ sum [undigits $ reverse ds | ds@(_:d2:d3:d4:d5:d6:d7:d8:d9:d10:_) <- pandigitalDigits
                                        , (100*d8 + 10*d9 + d10) `mod` 17 == 0
                                        , (100*d7 + 10*d8 + d9) `mod` 13 == 0
                                        , (100*d6 + 10*d7 + d8) `mod` 11 == 0

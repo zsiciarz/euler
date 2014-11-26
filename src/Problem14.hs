@@ -9,6 +9,6 @@ collatzLength n x = collatzLength (if even n then n `div` 2 else 3 * n + 1) (x +
 lengths :: V.Vector Int
 lengths = V.map (`collatzLength` 1) $ V.enumFromN 1 1000000
 
-solution14 :: IO ()
+solution14 :: IO Integer
 solution14 = do
-    print $ 1 + V.maxIndex lengths
+    return $ fromIntegral $ 1 + V.maxIndex lengths

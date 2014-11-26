@@ -7,6 +7,6 @@ import Data.Numbers.Primes
 pandigitals :: Int -> [Int]
 pandigitals n = map read $ permutations $ take n ['1'..'9']
 
-solution41 :: IO ()
+solution41 :: IO Integer
 solution41 = do
-    print $ maximum $ filter isPrime $ concatMap pandigitals [3..9]
+    return $ fromIntegral $ maximum $ filter isPrime $ concatMap pandigitals [3..9]

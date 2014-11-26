@@ -13,6 +13,6 @@ ways (c:cs) = n where
                 n = zipWith (+) (ways cs) (replicate c 0 ++ n)
 
 
-solution31 :: IO ()
+solution31 :: IO Integer
 solution31 = do
-    print $ ways coins !! target
+    return $ fromIntegral $ ways coins !! target

@@ -1,6 +1,7 @@
 
 module Problem74 where
 
+import Data.List (genericLength)
 import Common (digits, factorial)
 
 facDigits :: Int -> Int
@@ -25,7 +26,7 @@ chainLength n = length chain + x where
             363601 -> 3
             _ -> 1
 
-solution74 :: IO ()
+solution74 :: IO Integer
 solution74 = do
-    print $ length $ filter (== 60) $ map chainLength [1..1000000]
+    return $ genericLength $ filter (== 60) $ map chainLength [1..1000000]
 

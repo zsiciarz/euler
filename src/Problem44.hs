@@ -14,9 +14,9 @@ pentsS = S.fromList pents
 isPentagonal :: Int -> Bool
 isPentagonal n = n `S.member` pentsS
 
-solution44 :: IO ()
+solution44 :: IO Integer
 solution44 = do
-    print $ head [x - y | x <- pents
+    return $ fromIntegral $ head [x - y | x <- pents
                         , y <- pents
                         , x > y
                         , isPentagonal (x + y)

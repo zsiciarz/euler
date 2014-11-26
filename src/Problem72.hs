@@ -16,6 +16,6 @@ fareyLength :: Integer -> Integer
 fareyLength 1 = 2
 fareyLength n = fareyLength (n - 1) + phi n
 
-solution72 :: IO ()
+solution72 :: IO Integer
 solution72 = do
-    print $ fareyLength 1000000 - 2
+    return $ fareyLength 1000000 - 2

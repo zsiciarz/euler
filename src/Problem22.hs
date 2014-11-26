@@ -17,8 +17,8 @@ nameValue = T.foldl' (\acc c -> acc + charValue c) 0 . T.filter (`elem` ['A'..'Z
 findSolution :: T.Text -> Int
 findSolution s = sum [i * nameValue name | (i, name) <- zip [1..] $ sort (T.splitOn "," s)]
 
-solution22 :: IO ()
+solution22 :: IO Integer
 solution22 = do
     withFile "data/names.txt" ReadMode $ \h -> do
         contents <- hGetContents h
-        print $ findSolution contents
+        return $ fromIntegral $ findSolution contents

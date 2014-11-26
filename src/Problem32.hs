@@ -17,6 +17,6 @@ products = [undigits' r | xs <- permutations [1..9]
            , undigits' p * undigits' q == undigits' r
            ]
 
-solution32 :: IO ()
+solution32 :: IO Integer
 solution32 = do
-    print $ S.foldr' (+) 0 $ S.fromList products
+    return $ fromIntegral $ S.foldr' (+) 0 $ S.fromList products

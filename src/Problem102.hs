@@ -3,6 +3,7 @@ module Problem102 where
 
 import System.IO (withFile, IOMode(..), hGetContents)
 import Control.Applicative ((<$>))
+import Data.List (genericLength)
 import Data.List.Split (splitOn)
 
 
@@ -35,8 +36,8 @@ triangleContains p triangle@(Triangle p1 p2 p3) = 1e-6 > abs (a - a1 - a2 - a3) 
     a2 = area (Triangle p1 p p3)
     a3 = area (Triangle p1 p2 p)
 
-solution102 :: IO ()
+solution102 :: IO Integer
 solution102 = do
     withFile "data/triangles.txt" ReadMode $ \h -> do
         triangles <- (map read . lines) <$> hGetContents h
-        print . length . filter (triangleContains origin) $ triangles
+        return . genericLength . filter (triangleContains origin) $ triangles

@@ -17,6 +17,6 @@ letterCount x
     where (d10, m10) = divMod x 10
           (d100, m100) = divMod x 100
 
-solution17 :: IO ()
+solution17 :: IO Integer
 solution17 = do
-    print $ foldr (\x y -> letterCount x + y) (length "onethousand") [1..999]
+    return $ fromIntegral $ foldr (\x y -> letterCount x + y) (length "onethousand") [1..999]

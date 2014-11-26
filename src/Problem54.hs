@@ -4,7 +4,7 @@ module Problem54 where
 import Control.Applicative ((<$>), liftA2)
 import Control.Arrow ((***))
 import Data.Function (on)
-import Data.List (isInfixOf, group, sort)
+import Data.List (isInfixOf, genericLength, group, sort)
 import Data.Maybe (mapMaybe)
 import Data.Monoid ((<>))
 import System.IO (IOMode(..), withFile, hGetContents)
@@ -138,8 +138,8 @@ lineToHands s = (f *** f) $ splitAt 5 cards
                 where f = findHand . sort
                       cards = (mapMaybe stringToCard . words) s
 
-solution54 :: IO ()
+solution54 :: IO Integer
 solution54 = do
     withFile "data/poker.txt" ReadMode $ \h -> do
         hands <- (map lineToHands . lines) <$> hGetContents h
-        print $ length $ filter (uncurry (>)) hands
+        return $ genericLength $ filter (uncurry (>)) hands

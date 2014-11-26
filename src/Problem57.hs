@@ -3,6 +3,7 @@
 module Problem57 where
 
 import Data.Function (on)
+import Data.List (genericLength)
 import Data.Ratio
 import qualified Data.Vector as V
 
@@ -24,9 +25,9 @@ checkDigits r = ((>) `on` length . digits) n d where
                 n = numerator r
                 d = denominator r
 
-solution57 :: IO ()
+solution57 :: IO Integer
 solution57 = do
-    print $ length [r | n <- [1..1000]
+    return $ genericLength [r | n <- [1..1000]
                       , let r = convergent fracSqrt2 n
                       , checkDigits r
                       ]

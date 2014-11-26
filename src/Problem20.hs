@@ -3,6 +3,6 @@ module Problem20 where
 
 import Common (factorial, digits)
 
-solution20 :: IO ()
+solution20 :: IO Integer
 solution20 = do
-    print $ (sum . digits . factorial) 100
+    return $ (sum . digits . factorial) 100

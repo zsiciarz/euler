@@ -1,7 +1,7 @@
 
 module Problem75 where
 
-import Data.List (group, sort)
+import Data.List (genericLength, group, sort)
 
 maxLength :: Int
 maxLength = 1500000
@@ -19,6 +19,6 @@ lengths =  [l | m <- [2..mlimit]
               , l <= maxLength
               ]
 
-solution75 :: IO ()
+solution75 :: IO Integer
 solution75 = do
-    print $ length . filter (1==) . map length . group . sort $ lengths
+    return $ genericLength . filter (1==) . map length . group . sort $ lengths

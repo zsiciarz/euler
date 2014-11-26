@@ -7,6 +7,10 @@ solutionOptions :: Parser SolutionOptions
 solutionOptions = SolutionOptions <$> option auto (long "problem" <> metavar "NUM")
 
 eulerMain :: IO ()
-eulerMain = execParser opts >>= runSolution
+eulerMain = do
+    result <- execParser opts >>= runSolution
+    case result of
+        Just solution -> print solution
+        Nothing -> print "No solution"
     where
         opts = info (helper <*> solutionOptions) fullDesc

@@ -15,8 +15,8 @@ processLine line = exponent * logBase 10.0 base where
     exponent = read e
     (b, _:e) = break (==',') line
 
-solution99 :: IO ()
+solution99 :: IO Integer
 solution99 = do
     withFile "data/base_exp.txt" ReadMode $ \h -> do
         contents <- hGetContents h
-        print . maximumIndex . map processLine . lines $ contents
+        return . fromIntegral . maximumIndex . map processLine . lines $ contents

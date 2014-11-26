@@ -1,6 +1,7 @@
 
 module Problem55 where
 
+import Data.List (genericLength)
 import Common (digits, undigits)
 
 isLychrel :: Integer -> Bool
@@ -13,6 +14,6 @@ isLychrel x = iterateUntilPalindrom x 0 where
               revdigs = reverse digs
               num' = num + undigits revdigs
 
-solution55 :: IO ()
+solution55 :: IO Integer
 solution55 = do
-    print $ length $ filter isLychrel [1..10000]
+    return $ genericLength $ filter isLychrel [1..10000]

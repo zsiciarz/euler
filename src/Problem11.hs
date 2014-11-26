@@ -41,6 +41,6 @@ prods a = [product xs | i <- A.range $ A.bounds a,
                         all (inArray a) is,
                         let xs = map (a A.!) is]
 
-solution11 :: IO ()
+solution11 :: IO Integer
 solution11 = do
-    print $ maximum $ prods grid
+    return $ fromIntegral $ maximum $ prods grid

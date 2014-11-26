@@ -16,6 +16,6 @@ nOverPhi :: Integer -> Rational
 nOverPhi 1 = 1
 nOverPhi n = 1 / product (map (\p -> 1 - 1 % p) $ uniqueFactors n)
 
-solution69 :: IO ()
+solution69 :: IO Integer
 solution69 = do
-    print $ fst $ maximumBy (comparing snd) [(n, nOverPhi n) | n <- [1..1000000]]
+    return $ fst $ maximumBy (comparing snd) [(n, nOverPhi n) | n <- [1..1000000]]

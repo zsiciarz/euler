@@ -14,7 +14,7 @@ correctDigits n = digs !! 18 == 1 && digs !! 16 == 2 && digs !! 14 == 3 &&
 validNumbers :: [Integer]
 validNumbers = scanl (+) 1000000030 $ cycle [40, 60]
 
-solution206 :: IO ()
+solution206 :: IO Integer
 solution206 = do
-    print $ head $ filter (\n -> correctDigits $ n^2) $ validNumbers
+    return $ head $ filter (\n -> correctDigits $ n^2) $ validNumbers
 

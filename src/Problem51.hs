@@ -17,9 +17,9 @@ findReplacements digs digit = [num | r <- [0..9]
                                    , isPrime num
                                    ]
 
-solution51 :: IO ()
+solution51 :: IO Integer
 solution51 = do
-    print $ head [head replacements | n <- primes
+    return $ fromIntegral $ head [head replacements | n <- primes
                                     , let digs = digits n
                                     , let rest = digs \\ nub digs
                                     , not $ null rest

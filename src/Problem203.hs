@@ -16,6 +16,6 @@ primeSquares = map (^2) primes
 isSquarefree :: Integer -> Bool
 isSquarefree n = all (\s -> n `mod` s /= 0) $ takeWhile (<=n) $ primeSquares
 
-solution203 :: IO ()
+solution203 :: IO Integer
 solution203 = do
-    print $ sum $ filter isSquarefree $ distinctPascal 51
+    return $ sum $ filter isSquarefree $ distinctPascal 51

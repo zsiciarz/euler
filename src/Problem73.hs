@@ -12,6 +12,6 @@ numFractions from to n
     | otherwise = 1 + numFractions m to n + numFractions from m n
     where m = mediant from to
 
-solution73 :: IO ()
+solution73 :: IO Integer
 solution73 = do
-    print $ numFractions (1 % 3) (1 % 2) 12000
+    return $ numFractions (1 % 3) (1 % 2) 12000

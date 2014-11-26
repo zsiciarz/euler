@@ -21,8 +21,8 @@ hasCommonWords :: [Int] -> Bool
 hasCommonWords s = all (`isInfixOf` s) commonWords where
     commonWords = map (map ord) ["the ", "and "]
 
-solution59 :: IO ()
+solution59 :: IO Integer
 solution59 = do
     withFile "data/cipher1.txt" ReadMode $ \h -> do
         input <- readInput <$> hGetContents h
-        print $ (sum . head . filter hasCommonWords) $ map (decipher input) keys
+        return $ fromIntegral $ (sum . head . filter hasCommonWords) $ map (decipher input) keys

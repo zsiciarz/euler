@@ -23,7 +23,7 @@ countPermutations xs = forM xs $ \x -> do
     put newRegister
     return $ fromJust $ M.lookup ds newRegister
 
-solution62 :: IO ()
+solution62 :: IO Integer
 solution62 = do
     let result = evalState (countPermutations cubes) M.empty
-    print $ fst . head . filter ((== 5) . snd) $ result
+    return $ fst . head . filter ((== 5) . snd) $ result
