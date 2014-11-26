@@ -1,4 +1,4 @@
-module Main where
+module EulerMain where
 
 import Options.Applicative
 import Solutions (SolutionOptions (..), runSolution)
@@ -6,7 +6,7 @@ import Solutions (SolutionOptions (..), runSolution)
 solutionOptions :: Parser SolutionOptions
 solutionOptions = SolutionOptions <$> option auto (long "problem" <> metavar "NUM")
 
-main :: IO ()
-main = execParser opts >>= runSolution
+eulerMain :: IO ()
+eulerMain = execParser opts >>= runSolution
     where
         opts = info (helper <*> solutionOptions) fullDesc
