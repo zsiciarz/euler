@@ -15,8 +15,8 @@ makeTestCase problemNumber solution lastDigits = TestCase $ do
 
 main :: IO ()
 main = do
-    c <- runTestTT $ TestList [
-        makeTestCase 1 solution1 68
+    c <- runTestTT $ TestList
+        [ makeTestCase 1 solution1 68
         , makeTestCase 2 solution2 32
         ]
     when (errors c /= 0 || failures c /= 0) exitFailure
