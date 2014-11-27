@@ -7,15 +7,17 @@ import Test.HUnit
 import Problem1 (solution1)
 import Problem2 (solution2)
 
+makeTestCase :: Int -> IO Integer -> Integer -> Test
+makeTestCase problemNumber solution lastDigits = TestCase $ do
+    result <- solution
+    assertEqual label (result `mod` 100) lastDigits
+        where label = "test solution for problem " ++ show problemNumber
+
 testSolution1 :: Test
-testSolution1 = TestCase $ do
-    result <- solution1
-    assertEqual "test solution for problem 1" (result `mod` 100) 68
+testSolution1 = makeTestCase 1 solution1 68
 
 testSolution2 :: Test
-testSolution2 = TestCase $ do
-    result <- solution2
-    assertEqual "test solution for problem 2" (result `mod` 100) 32
+testSolution2 = makeTestCase 2 solution2 32
 
 main :: IO ()
 main = do
