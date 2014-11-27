@@ -14,5 +14,4 @@ testSolution1 = TestCase $ do
 main :: IO ()
 main = do
     c <- runTestTT testSolution1
-    when (errors c /= 0 || failures c /= 0) $
-        exitFailure
+    when (errors c /= 0 || failures c /= 0) exitFailure
