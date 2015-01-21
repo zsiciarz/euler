@@ -10,7 +10,6 @@ library
                    array == 0.5.*,
                    bytestring == 0.10.*,
                    containers == 0.5.*,
-                   directory == 1.2.*,
                    mtl == 2.2.*,
                    optparse-applicative == 0.11.*,
                    primes == 0.2.*,
