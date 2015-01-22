@@ -14,6 +14,18 @@ import Problem7 (solution7)
 import Problem8 (solution8)
 import Problem9 (solution9)
 import Problem10 (solution10)
+import Problem11 (solution11)
+import Problem12 (solution12)
+import Problem13 (solution13)
+import Problem14 (solution14)
+import Problem15 (solution15)
+import Problem16 (solution16)
+import Problem17 (solution17)
+import Problem18 (solution18)
+import Problem19 (solution19)
+import Problem20 (solution20)
+import Problem21 (solution21)
+import Problem22 (solution22)
 
 makeTestCase :: Int -> IO Integer -> Integer -> Test
 makeTestCase problemNumber solution lastDigits = TestCase $ do
@@ -34,5 +46,17 @@ main = do
         , makeTestCase 8 solution8 0
         , makeTestCase 9 solution9 0
         , makeTestCase 10 solution10 22
+        , makeTestCase 11 solution11 74
+        , makeTestCase 12 solution12 0
+        , makeTestCase 13 solution13 30
+        , makeTestCase 14 solution14 99
+        , makeTestCase 15 solution15 20
+        , makeTestCase 16 solution16 66
+        , makeTestCase 17 solution17 24
+        , makeTestCase 18 solution18 74
+        , makeTestCase 19 solution19 71
+        , makeTestCase 20 solution20 48
+        , makeTestCase 21 solution21 26
+        , makeTestCase 22 solution22 82
         ]
     when (errors c /= 0 || failures c /= 0) exitFailure
