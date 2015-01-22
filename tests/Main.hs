@@ -30,7 +30,7 @@ import Problem22 (solution22)
 makeTestCase :: Int -> IO Integer -> Integer -> Test
 makeTestCase problemNumber solution lastDigits = TestCase $ do
     result <- solution
-    assertEqual label (result `mod` 100) lastDigits
+    assertEqual label ((abs result) `mod` 100) lastDigits
         where label = "test solution for problem " ++ show problemNumber
 
 main :: IO ()
