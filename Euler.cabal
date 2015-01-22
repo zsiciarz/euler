@@ -133,4 +133,6 @@ Test-Suite test-euler
   build-depends:
                    base == 4.*,
                    HUnit == 1.2.*,
+                   tasty == 0.10.*,
+                   tasty-hunit == 0.9.*,
                    euler

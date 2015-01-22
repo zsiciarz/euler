@@ -2,7 +2,8 @@ module Main where
 
 import Control.Monad (when)
 import System.Exit (exitFailure)
-import Test.HUnit
+import Test.Tasty (defaultMain, testGroup, TestTree)
+import Test.Tasty.HUnit (assertEqual, testCase)
 
 import Problem1 (solution1)
 import Problem2 (solution2)
@@ -45,15 +46,14 @@ import Problem38 (solution38)
 import Problem39 (solution39)
 import Problem40 (solution40)
 
-makeTestCase :: Int -> IO Integer -> Integer -> Test
-makeTestCase problemNumber solution lastDigits = TestCase $ do
+makeTestCase :: Int -> IO Integer -> Integer -> TestTree
+makeTestCase problemNumber solution lastDigits = testCase label $ do
     result <- solution
     assertEqual label ((abs result) `mod` 100) lastDigits
         where label = "test solution for problem " ++ show problemNumber
 
 main :: IO ()
-main = do
-    c <- runTestTT $ TestList
+main = defaultMain $ testGroup "Tests"
         [ makeTestCase 1 solution1 68
         , makeTestCase 2 solution2 32
         , makeTestCase 3 solution3 57
@@ -95,4 +95,3 @@ main = do
         , makeTestCase 39 solution39 40
         , makeTestCase 40 solution40 10
         ]
-    when (errors c /= 0 || failures c /= 0) exitFailure
