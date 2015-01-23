@@ -1,14 +1,14 @@
 
 module Problem38 where
 
-import Data.List ( inits, sort)
+import Data.List (inits, sort)
 
 isPandigital :: String -> Bool
 isPandigital s = sort s == "123456789"
 
 makeNumber :: Int -> String
 makeNumber x =  maxNumber . map (concatMap show) . inits $ products where
-    products = zipWith (*) (repeat x) [1..]
+    products = map (*x) [1..]
     maxNumber = last . takeWhile (\s -> length s < 10)
 
 solution38 :: IO Integer
