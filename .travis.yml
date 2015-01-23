@@ -1,17 +1,9 @@
 language: haskell
 ghc: 7.8
 before_install:
-  - which cabal
   - cabal install cabal-install
-  - which cabal
-  - cabal --version
-  - /home/travis/.cabal/bin/cabal --version
   - export PATH=$HOME/.cabal/bin:$PATH
 script:
-  - echo $PATH
-  - which cabal
-  - cabal --version
-  - /home/travis/.cabal/bin/cabal --version
   - cabal configure --enable-tests
   - cabal build
   - cabal test --show-details=streaming
