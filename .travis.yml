@@ -5,9 +5,12 @@ before_install:
   - cabal install cabal-install
   - which cabal
   - cabal --version
+  - /home/travis/.cabal/bin/cabal --version
 script:
   - echo $PATH
   - which cabal
+  - cabal --version
+  - /home/travis/.cabal/bin/cabal --version
   - cabal configure --enable-tests
   - cabal build
   - cabal test --show-details=streaming
