@@ -1,10 +1,14 @@
 
 module Problem34 where
 
-import Common (digits, factorial)
+import qualified Data.Vector.Unboxed as V
+import Common (digits)
+
+factorials :: V.Vector Int
+factorials = V.fromList [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
 
 facSum :: Int -> Int
-facSum = sum . map factorial . digits
+facSum = sum . map (factorials V.!) . digits
 
 solution34 :: IO Integer
 solution34 = do
