@@ -6,6 +6,7 @@ before_install:
   - which cabal
   - cabal --version
 script:
+  - echo $PATH
   - which cabal
   - cabal configure --enable-tests
   - cabal build
