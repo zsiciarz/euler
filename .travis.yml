@@ -2,6 +2,7 @@ sudo: false
 cache:
   directories:
     - .cabal-sandbox
+    - $HOME/.cabal
 language: haskell
 ghc: 7.8
 before_install:
