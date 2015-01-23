@@ -6,6 +6,7 @@ before_install:
   - which cabal
   - cabal --version
   - /home/travis/.cabal/bin/cabal --version
+  - export PATH=$HOME/.cabal/bin:$PATH
 script:
   - echo $PATH
   - which cabal
