@@ -1,13 +1,13 @@
 
 module Problem32 where
 
-import Data.List (permutations)
+import Data.List (foldl', permutations)
 import qualified Data.IntSet as S
 import qualified Data.Map as M
 import Common (digits)
 
 undigits :: M.Map [Int] Int
-undigits = foldr (\x m -> M.insert (digits x) x m) M.empty [1..100000]
+undigits = foldl' (\m x -> M.insert (digits x) x m) M.empty [1..100000]
 
 undigits' :: [Int] -> Int
 undigits' ds = M.findWithDefault 0 ds undigits
