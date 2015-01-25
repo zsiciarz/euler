@@ -6,7 +6,7 @@ cache:
 language: haskell
 ghc: 7.8
 before_install:
-  - cabal install cabal-install
+  - if [[ `cabal --numeric-version` != "1.22"* ]]; then cabal install cabal-install; fi
   - export PATH=$HOME/.cabal/bin:$PATH
 install:
   - cabal sandbox init
