@@ -1,21 +1,23 @@
--- works, runs in 22 seconds
 
 module Problem23 where
 
+import qualified Data.Vector.Unboxed as V
 import Common (divisors)
 
 limit :: Int
 limit = 28123
 
-isAbundant :: Int -> Bool
-isAbundant x = (2*x) < sum (divisors x)
+abundants :: V.Vector Bool
+abundants = V.map f $ V.enumFromN 1 limit where
+    f :: Int -> Bool
+    f x = (2*x) < sum (divisors x)
 
-abundants :: [Int]
-abundants = filter isAbundant [1..limit]
+isAbundant :: Int -> Bool
+isAbundant x = abundants V.! (x - 1)
 
 isSum :: Int -> Bool
-isSum x = any isAbundant $ rests x where
-          rests n = map (n-) $ takeWhile (<= n `div` 2) abundants
+isSum = any isAbundant . rests where
+    rests n = map (n-) $ filter isAbundant [1..n `div` 2]
 
 solution23 :: IO Integer
 solution23 = do
