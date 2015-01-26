@@ -45,6 +45,16 @@ import Problem37 (solution37)
 import Problem38 (solution38)
 import Problem39 (solution39)
 import Problem40 (solution40)
+import Problem41 (solution41)
+import Problem42 (solution42)
+import Problem43 (solution43)
+import Problem44 (solution44)
+import Problem45 (solution45)
+import Problem46 (solution46)
+import Problem47 (solution47)
+import Problem48 (solution48)
+import Problem49 (solution49)
+import Problem50 (solution50)
 
 makeTestCase :: Int -> IO Integer -> Integer -> TestTree
 makeTestCase problemNumber solution lastDigits = testCase label $ do
@@ -94,4 +104,14 @@ main = defaultMain $ testGroup "Tests"
         , makeTestCase 38 solution38 54
         , makeTestCase 39 solution39 40
         , makeTestCase 40 solution40 10
+        , makeTestCase 41 solution41 13
+        , makeTestCase 42 solution42 62
+        , makeTestCase 43 solution43 90
+        , makeTestCase 44 solution44 60
+        , makeTestCase 45 solution45 5
+        , makeTestCase 46 solution46 77
+        , makeTestCase 47 solution47 43
+        , makeTestCase 48 solution48 0
+        , makeTestCase 49 solution49 29
+        , makeTestCase 50 solution50 51
         ]
