@@ -142,4 +142,5 @@ solution54 :: IO Integer
 solution54 = do
     withFile "data/poker.txt" ReadMode $ \h -> do
         hands <- (map lineToHands . lines) <$> hGetContents h
-        return $ genericLength $ filter (uncurry (>)) hands
+
+        length hands `seq` return $ genericLength $ filter (uncurry (>)) hands
