@@ -12,4 +12,4 @@ facSum = sum . map (factorials V.!) . digits
 
 solution34 :: IO Integer
 solution34 = do
-    return $ fromIntegral $ sum [ x | x <- [3..2540160], x == facSum x]
+    return $ fromIntegral $ V.sum $ V.filter (\x -> x == facSum x) $ V.enumFromN 3 2540160
