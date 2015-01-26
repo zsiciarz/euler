@@ -59,7 +59,7 @@ import Problem50 (solution50)
 makeTestCase :: Int -> IO Integer -> Integer -> TestTree
 makeTestCase problemNumber solution lastDigits = testCase label $ do
     result <- solution
-    assertEqual label ((abs result) `mod` 100) lastDigits
+    assertEqual label lastDigits (abs result `mod` 100)
         where label = "test solution for problem " ++ show problemNumber
 
 main :: IO ()
