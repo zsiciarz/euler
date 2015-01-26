@@ -25,4 +25,4 @@ solution59 :: IO Integer
 solution59 = do
     withFile "data/cipher1.txt" ReadMode $ \h -> do
         input <- readInput <$> hGetContents h
-        return $ fromIntegral $ (sum . head . filter hasCommonWords) $ map (decipher input) keys
+        length input `seq` return $ fromIntegral $ (sum . head . filter hasCommonWords) $ map (decipher input) keys
