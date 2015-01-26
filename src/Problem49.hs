@@ -14,13 +14,14 @@ checkPermutations xs = all (== head xs') (tail xs') where
 
 solution49 :: IO Integer
 solution49 = do
-    print $ [ (p, ps, pss) | p <- primes'
-                           , s <- [1..9000]
-                           , let ps = p + s
-                           , let pss = p + s + s
-                           , isPrime ps
-                           , isPrime pss
-                           , pss < 10000
-                           , checkPermutations [p, ps, pss]
-                           ]
-    return 1
+    let (p, ps, pss) = head [(p, ps, pss) | p <- primes'
+                            , s <- [1..9000]
+                            , let ps = p + s
+                            , let pss = p + s + s
+                            , isPrime ps
+                            , isPrime pss
+                            , pss < 10000
+                            , checkPermutations [p, ps, pss]
+                            , p /= 1487
+                            ]
+    return $ fromIntegral (p * 100000000 + ps * 10000 + pss)
