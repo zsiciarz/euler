@@ -10,5 +10,9 @@ codex.tags
 *.chi
 *.chs.h
 *.prof
+*.hp
+*.aux
+*.ps
+*.pdf
 *.swp
 *~
