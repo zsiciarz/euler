@@ -7,7 +7,7 @@ import Data.List (maximumBy)
 
 solution50 :: IO Integer
 solution50 = do
-    return $ fst $ maximumBy (comparing snd) [(s, length xs) | i <- [0..1000]
+    return $ fst $ maximumBy (comparing snd) [(s, j) | i <- [0..1000]
                                                             , j <- [i..1000]
                                                             , let xs = take j $ drop i primes
                                                             , let s = sum xs
