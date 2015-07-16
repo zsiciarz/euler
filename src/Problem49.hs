@@ -9,8 +9,8 @@ primes' :: [Int]
 primes' = dropWhile (<1000) $ takeWhile (<10000) primes
 
 checkPermutations :: [Int] -> Bool
-checkPermutations xs = all (== head xs') (tail xs') where
-    xs' = map (sort . digits) xs
+checkPermutations xs = all (== x) xs' where
+    (x:xs') = map (sort . digits) xs
 
 solution49 :: IO Integer
 solution49 = do
