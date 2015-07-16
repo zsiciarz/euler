@@ -5,7 +5,12 @@ cache:
     - dist
     - $HOME/.cabal
 language: haskell
-ghc: 7.8
+addons:
+  apt:
+    sources:
+    - hvr-ghc
+    packages:
+    - ghc-7.10.1
 before_install:
   - if [[ `cabal --numeric-version` != "1.22"* ]]; then cabal install cabal-install; fi
   - export PATH=$HOME/.cabal/bin:$PATH
