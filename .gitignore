@@ -16,3 +16,4 @@ codex.tags
 *.pdf
 *.swp
 *~
+.stack-work/
