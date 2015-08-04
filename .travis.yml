@@ -1,9 +1,7 @@
 sudo: false
 cache:
   directories:
-    - .cabal-sandbox
-    - dist
-    - $HOME/.cabal
+    - $HOME/.stack
 language: haskell
 addons:
   apt:
