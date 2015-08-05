@@ -1,10 +1,16 @@
 
 module Problem24 where
 
-import Data.List (permutations, sort)
-import Common (undigits)
+import Data.List (delete)
+import Common (undigits, factorial)
+
+findPermutation :: [Int] -> Int -> [Int]
+findPermutation [] _ = []
+findPermutation xs i = (xs !! q) : findPermutation xs' r where
+    (q, r) = i `quotRem` factorial (length xs - 1)
+    xs' = delete (xs !! q) xs
+
 
 solution24 :: IO Integer
 solution24 = do
-    let perms = sort $ permutations [0..9]
-    return $ undigits $ reverse $ perms !! 999999
+    return $ fromIntegral $ undigits $ reverse $ findPermutation [0..9] 999999
