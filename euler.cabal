@@ -6,7 +6,7 @@ build-type:     Simple
 library
   hs-source-dirs:  src
   build-depends:
-                   base == 4.*,
+                   base == 4.8.*,
                    array == 0.5.*,
                    bytestring == 0.10.*,
                    containers == 0.5.*,
