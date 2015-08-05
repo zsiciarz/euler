@@ -20,5 +20,5 @@ solution42 :: IO Integer
 solution42 = do
     withFile "data/words.txt" ReadMode $ \h -> do
         contents <- hGetContents h
-        let words = T.splitOn "," contents
-        return $ genericLength $ filter (isTriangular . wordValue) words
+        let allWords = T.splitOn "," contents
+        return $ genericLength $ filter (isTriangular . wordValue) allWords

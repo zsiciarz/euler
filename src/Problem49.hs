@@ -14,7 +14,7 @@ checkPermutations xs = all (== x) xs' where
 
 solution49 :: IO Integer
 solution49 = do
-    let (p, ps, pss) = head [(p, ps, pss) | p <- primes'
+    let (p', ps', pss') = head [(p, ps, pss) | p <- primes'
                             , s <- [1..9000]
                             , let ps = p + s
                             , let pss = p + s + s
@@ -24,4 +24,4 @@ solution49 = do
                             , checkPermutations [p, ps, pss]
                             , p /= 1487
                             ]
-    return $ fromIntegral (p * 100000000 + ps * 10000 + pss)
+    return $ fromIntegral (p' * 100000000 + ps' * 10000 + pss')
