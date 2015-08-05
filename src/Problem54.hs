@@ -1,7 +1,7 @@
 
 module Problem54 where
 
-import Control.Applicative ((<$>), liftA2)
+import Control.Applicative (liftA2)
 import Control.Arrow ((***))
 import Data.Function (on)
 import Data.List (isInfixOf, genericLength, group, sort)

@@ -2,7 +2,6 @@
 module Problem102 where
 
 import System.IO (withFile, IOMode(..), hGetContents)
-import Control.Applicative ((<$>))
 import Data.List (genericLength)
 import Data.List.Split (splitOn)
 
